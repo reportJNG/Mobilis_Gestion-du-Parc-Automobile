@@ -1,4 +1,8 @@
-<?php // here to send data and be able to connect to broweser with username + password;
+<?php //LOGIN FOR WEBPAGELOGIN.users
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 header("Access-Control-Allow-Origin: http://localhost:3000");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
@@ -8,7 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     http_response_code(200);
     exit;
 }
+
 require "Database.php";
+$database = new Database();
+$pdo = $database->getConnection();
 
 $data = json_decode(file_get_contents("php://input"), true);
 
@@ -21,20 +28,29 @@ if (!$username || !$password) {
     exit;
 }
 
+error_log("Login attempt for username: " . $username);
+
 $stmt = $pdo->prepare("SELECT * FROM app_user WHERE username = ?");
 $stmt->execute([$username]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (!$user || !password_verify($password, $user["password"])) {
-    http_response_code(401);
-    echo json_encode(["error" => "Invalid information"]);
+error_log("User found: " . ($user ? "Yes" : "No"));
+
+if ($user) {
+    error_log("Database password: " . $user["password"]);
+    error_log("Provided password: " . $password);
+}
+
+if (!$user || $password !== $user["password"]) {
+    echo json_encode(["error" => "Invalid username or password"]);
     exit;
 }
 
 echo json_encode([
     "success" => true,
     "user" => [
-        "id" => $user["id"],
-        "username" => $user["username"]
+        "id" => $user["id_app_user"],
+        "username" => $user["username"],
+        "role" => $user["role"]
     ]
 ]);

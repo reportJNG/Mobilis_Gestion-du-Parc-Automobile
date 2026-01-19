@@ -3,6 +3,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Mobilis",
   description: "Mobilis",
+    icons: {
+    icon: '/lg.ico',
+  },
 };
 
 export default function RootLayout({

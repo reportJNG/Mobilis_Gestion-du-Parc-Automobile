@@ -1,18 +1,26 @@
-<?php //this file is important here we always check the database if it does exist and just connect it 
-$host = "localhost";
-$db   = "myapp";
-$user = "root";
-$pass = "";
+<?php //THIS ALWAYS MAKE SURE DATABASE IS ONLINE 
+    class Database {
+    private $host = "localhost";
+    private $db_name = "gestion_du_parc_automobile"; 
+    private $username = "root"; 
+    private $password = ""; 
+    private $conn;
 
-try {
-    $pdo = new PDO(
-        "mysql:host=$host;dbname=$db;charset=utf8",
-        $user,
-        $pass,
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-    );
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(["error" => "Database connection failed"]);
-    exit;
+    public function getConnection() {
+        $this->conn = null;
+
+        try {
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->db_name,
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->exec("set names utf8");
+        } catch(PDOException $exception) {
+            echo "Connection error: " . $exception->getMessage();
+        }
+
+        return $this->conn;
+    }
 }

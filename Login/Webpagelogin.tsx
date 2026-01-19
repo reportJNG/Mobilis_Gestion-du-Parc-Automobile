@@ -1,37 +1,47 @@
 import styles from './Webpagelogin.module.css';
 import { useState } from 'react';
 import Image from 'next/image';
+import Message from '@/Components/Message';
 
 export default function Webpagelogin(){
     const [name,setName]=useState<string>('');
     const [password,setPassword]=useState<string>('');
-    
+    const [success,setSuccess]=useState<boolean>(false);
+    const [faild,setFaild]=useState<boolean>(false);
     const login = async(e: React.FormEvent) => { // here we check the data if it exsit in database so we can connect to webpage
         e.preventDefault();
-        const res=await fetch("http://localhost/api/login.php",
+        const res=await fetch("http://localhost/my-app/API/Login.php",
             {method:'POST',
             headers:{'Content-type':'application/json'},
             body:JSON.stringify({
                 username:name,password:password
             })});
         const data = await res.json();
-
         if(!data.success){
-            console.log('Failed to login');
+        setFaild(true)
+        const time = setTimeout(()=>{
+            setFaild(false);
+        },5000)
+        return()=>clearTimeout(time);
         }
-        else{
-            console.log('IT WORKED');
-        }   
-    }
+        else{ // connected
+        setSuccess(true)
+        const time = setTimeout(()=>{
+            setSuccess(false);
+            //here send it to webpage or panel check the user role
+        },5000)
+        return()=>clearTimeout(time);
+        }}
 
     const handleForgotPassword = () => {
-        
         console.log('Forgot password functionality');
     }
 
     const handleForgotUsername = () => {
-        
         console.log('Forgot username functionality');
+    }
+    const handleaccexsit=()=>{
+        console.log('wait');
     }
 
     return(
@@ -70,7 +80,10 @@ export default function Webpagelogin(){
                         maxLength={50} 
                         minLength={1} 
                         value={name} 
-                        onChange={(e)=>setName(e.target.value)}
+                        onChange={(e)=>{
+                        const input = e.target.value;
+                        const clean = input.replace(/[^a-zA-Z0-9]/g, '');
+                        setName(clean)}}
                         placeholder="Nom d'utilisateur"
                         required
                     />
@@ -81,7 +94,10 @@ export default function Webpagelogin(){
                         maxLength={50} 
                         minLength={1} 
                         value={password} 
-                        onChange={(e)=>setPassword(e.target.value)}
+                        onChange={(e)=>{
+                        const input = e.target.value;
+                        const clean = input.replace(/[^a-zA-Z0-9]/g, '');
+                        setPassword(clean)}}
                         placeholder="Mot de passe"
                         required
                     />
@@ -91,6 +107,13 @@ export default function Webpagelogin(){
                     </button>
                     
                     <div className={styles.linksContainer}>
+                        <button 
+                            type="button" 
+                            className={styles.forget}
+                            onClick={handleaccexsit}
+                        >
+                               Pas de compte ?
+                        </button>
                         <button 
                             type="button" 
                             className={styles.forget}
@@ -109,6 +132,8 @@ export default function Webpagelogin(){
                     </div>
                 </form>
             </div>
+            {success&&<Message  text="Connexion réussie !" state={true}/>}
+            {faild&&<Message text="Nom d’utilisateur ou mot de passe incorrect." state={false} />}
         </div>
     )
 }
