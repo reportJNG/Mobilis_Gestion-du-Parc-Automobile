@@ -1,5 +1,5 @@
 'use client'
-import Webpagelogin from "@/Login/Webpagelogin";
+import Webpagelogin from "@/app/Login/Webpagelogin";
 export default function Home() {
   return (
     <Webpagelogin/>

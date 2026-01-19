@@ -2,12 +2,13 @@ import styles from './Webpagelogin.module.css';
 import { useState } from 'react';
 import Image from 'next/image';
 import Message from '@/Components/Message';
-
+import { useRouter } from 'next/navigation';
 export default function Webpagelogin(){
     const [name,setName]=useState<string>('');
     const [password,setPassword]=useState<string>('');
     const [success,setSuccess]=useState<boolean>(false);
     const [faild,setFaild]=useState<boolean>(false);
+    const routes=useRouter();
     const login = async(e: React.FormEvent) => { // here we check the data if it exsit in database so we can connect to webpage
         e.preventDefault();
         const res=await fetch("http://localhost/my-app/API/Login.php",
@@ -26,9 +27,8 @@ export default function Webpagelogin(){
         }
         else{ // connected
         setSuccess(true)
-        const time = setTimeout(()=>{
+        const time = setTimeout(()=>{//here send it to webpage normal or panel check the user role
             setSuccess(false);
-            //here send it to webpage or panel check the user role
         },5000)
         return()=>clearTimeout(time);
         }}
@@ -37,11 +37,8 @@ export default function Webpagelogin(){
         console.log('Forgot password functionality');
     }
 
-    const handleForgotUsername = () => {
-        console.log('Forgot username functionality');
-    }
-    const handleaccexsit=()=>{
-        console.log('wait');
+    const handlenonexsit=()=>{
+        routes.push('/signup');
     }
 
     return(
@@ -73,12 +70,12 @@ export default function Webpagelogin(){
                     <h1 className={styles.texttile}>Gestion du Parc Automobile</h1>
                 </div>
                 
-                <form onSubmit={login} method="post" className={styles.inputhanlder}> {/**add securty for inputs later to send valid data and no sql injection*/}
+                <form onSubmit={login} className={styles.inputhanlder}> {/**no injection now input good handled*/}
                     <input 
                         type="text" 
                         className={styles.inp} 
-                        maxLength={50} 
-                        minLength={1} 
+                        maxLength={20} 
+                        minLength={3} 
                         value={name} 
                         onChange={(e)=>{
                         const input = e.target.value;
@@ -91,8 +88,8 @@ export default function Webpagelogin(){
                     <input 
                         type="password" 
                         className={styles.inp} 
-                        maxLength={50} 
-                        minLength={1} 
+                        maxLength={8} 
+                        minLength={8} 
                         value={password} 
                         onChange={(e)=>{
                         const input = e.target.value;
@@ -110,7 +107,7 @@ export default function Webpagelogin(){
                         <button 
                             type="button" 
                             className={styles.forget}
-                            onClick={handleaccexsit}
+                            onClick={handlenonexsit}
                         >
                                Pas de compte ?
                         </button>
@@ -120,14 +117,6 @@ export default function Webpagelogin(){
                             onClick={handleForgotPassword}
                         >
                             Mot de passe oublié?
-                        </button>
-                        
-                        <button 
-                            type="button" 
-                            className={styles.forget}
-                            onClick={handleForgotUsername}
-                        >
-                            Nom dutilisateur oublié?
                         </button>
                     </div>
                 </form>
