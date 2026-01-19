@@ -6,9 +6,22 @@ export default function Webpagelogin(){
     const [name,setName]=useState<string>('');
     const [password,setPassword]=useState<string>('');
     
-    const login = (e: React.FormEvent) => {
+    const login = async(e: React.FormEvent) => { // here we check the data if it exsit in database so we can connect to webpage
         e.preventDefault();
-        
+        const res=await fetch("http://localhost/api/login.php",
+            {method:'POST',
+            headers:{'Content-type':'application/json'},
+            body:JSON.stringify({
+                username:name,password:password
+            })});
+        const data = await res.json();
+
+        if(!data.success){
+            console.log('Failed to login');
+        }
+        else{
+            console.log('IT WORKED');
+        }   
     }
 
     const handleForgotPassword = () => {
@@ -50,7 +63,7 @@ export default function Webpagelogin(){
                     <h1 className={styles.texttile}>Gestion du Parc Automobile</h1>
                 </div>
                 
-                <form onSubmit={login} method="post" className={styles.inputhanlder}> {/**add securty for inputs later */}
+                <form onSubmit={login} method="post" className={styles.inputhanlder}> {/**add securty for inputs later to send valid data and no sql injection*/}
                     <input 
                         type="text" 
                         className={styles.inp} 
