@@ -22,14 +22,14 @@ export default function Webpagelogin(){
         setFaild(true)
         const time = setTimeout(()=>{
             setFaild(false);
-        },5000)
+        },3000)
         return()=>clearTimeout(time);
         }
         else{ // connected
         setSuccess(true)
         const time = setTimeout(()=>{//here send it to webpage normal or panel check the user role
             setSuccess(false);
-        },5000)
+        },3000)
         return()=>clearTimeout(time);
         }}
 

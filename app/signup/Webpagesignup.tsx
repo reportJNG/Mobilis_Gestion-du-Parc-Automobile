@@ -33,16 +33,16 @@ export default function Webpagesignup(){
 
     if (!data.success || formData.password!==formData.confirmepassword) {
       setFaild(true);
-      setTimeout(() => setFaild(false), 5000);
+      setTimeout(() => setFaild(false), 3000);
     } else {
       setSuccess(true);
-      setTimeout(() => {routes.push('/');setSuccess(false)}, 5000);
+      setTimeout(() => {routes.push('/');setSuccess(false)}, 3000);
       
     }
     } catch (error) {
     console.error(error);
     setFaild(true);
-    setTimeout(() => setFaild(false), 5000);
+    setTimeout(() => setFaild(false), 3000);
     }
     };
     const handleaccexsit=()=>{

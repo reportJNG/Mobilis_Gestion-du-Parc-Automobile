@@ -92,7 +92,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  animation: shrink 5s linear forwards;
+  animation: shrink 3s linear forwards;
   transform-origin: left center;
 }
 
