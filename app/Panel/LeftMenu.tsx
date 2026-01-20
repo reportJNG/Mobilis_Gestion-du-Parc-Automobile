@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 interface LeftMenuprops {
   close: () => void;
 }
-export default function LeftMenu() {
+export default function LeftMenu({ close }: LeftMenuprops) {
   const [panels, setPanels] = useState({
     clients: false,
     Véhicules: false,
@@ -15,12 +15,13 @@ export default function LeftMenu() {
   });
   const routes = useRouter(); //signout
   const ToggelPanel = (panel: keyof typeof panels) => {
-    setPanels(
-      (prev) =>
-        Object.fromEntries(
-          Object.keys(prev).map((key) => [key, key === panel]),
-        ) as typeof panels,
-    );
+    setPanels((prev) => {
+      const isOpen = prev[panel];
+
+      return Object.fromEntries(
+        Object.keys(prev).map((key) => [key, key === panel ? !isOpen : false]),
+      ) as typeof panels;
+    });
   };
 
   return (

@@ -1,14 +1,11 @@
 here we will type all kind of comments and old one should be deleted (arabic-english-french):
 hamza:{
-login <=== all done
+login <== need to work on this stuff (user|worker|admin)
 sign-up <== all done
 user <== {Topbar} <==all done
 
-{body} <==||last step for today||
+{body} <==||still not finshed||
 
-panel <== admin + workers page ||3|| <== working on this now !!
+panel <== admin + workers page <== ||only ui no logic still not finshed||
 
-logic <== logic here of the checking in login if (user|worker|admin) to redirect it to best webpage ||4||
-
-if(4===true) go to user
 }
