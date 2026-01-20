@@ -45,14 +45,10 @@
 }
 
 .imagelogo {
-  border-radius: 12px;
+  border-radius: 30px;
   object-fit: cover;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease;
-}
-
-.imagelogo:hover {
-  transform: scale(1.05);
 }
 
 .rightclose {
@@ -71,9 +67,7 @@
 }
 
 .rightclose:hover {
-  color: #111827;
-  background: #f0f2f5;
-  transform: rotate(90deg);
+  color: #ff0000;
 }
 
 .body {
@@ -219,6 +213,23 @@
   font-weight: 500;
   letter-spacing: 0.1px;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.li i {
+  font-size: 1.1rem;
+  min-width: 20px;
+  color: #9ca3af;
+  transition: all 0.2s ease;
+  opacity: 0.9;
+}
+
+.li:hover i {
+  color: #059669;
+  transform: translateX(2px) scale(1.1);
+  opacity: 1;
 }
 
 .li::before {
@@ -318,6 +329,37 @@
 
 .boxeach button.active i {
   color: #059669;
+}
+
+/* Specific icon adjustments for list items */
+.li .fi-rr-fuel-gauge {
+  color: #f59e0b;
+}
+
+.li .fi-rr-wrench {
+  color: #3b82f6;
+}
+
+.li .fi-rr-chart-line {
+  color: #8b5cf6;
+}
+
+.li .fi-rr-plus {
+  color: #059669;
+  font-size: 1rem;
+}
+
+.li .fi-rr-exclamation {
+  color: #dc2626;
+  font-size: 1rem;
+}
+
+.li .fi-rr-marker {
+  color: #6366f1;
+}
+
+.li .fi-rr-user-plus {
+  color: #7c3aed;
 }
 
 @media (max-width: 768px) {

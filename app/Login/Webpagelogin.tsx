@@ -10,6 +10,15 @@ export type Status =
   | "account-not-found"
   | "changed"
   | "change-failed";
+interface LoginResponse {
+  success: boolean;
+  user?: {
+    id: number;
+    username: string;
+    role: string;
+  };
+  error?: string;
+}
 export default function Webpagelogin() {
   const [name, setName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -27,7 +36,7 @@ export default function Webpagelogin() {
         password: password,
       }),
     });
-    const data = await res.json();
+    const data: LoginResponse = await res.json();
     if (!data.success) {
       setFaild(true);
       const time = setTimeout(() => {
@@ -39,8 +48,16 @@ export default function Webpagelogin() {
       setSuccess(true);
       const time = setTimeout(() => {
         //here send it to webpage normal or panel check the user role IF 'user' 'worker' 'admin'
+        if (data.user?.role === "user") {
+          routes.push("/Home");
+        }
+        if (data.user?.role === "admin") {
+          routes.push("/Panel?t07=true");
+        }
+        if (data.user?.role === "worker") {
+          routes.push("/Panel?t07=false");
+        }
         setSuccess(false);
-        routes.push("/Panel"); //here normal users always just testing
       }, 3000);
       return () => clearTimeout(time);
     }

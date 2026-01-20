@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 interface LeftMenuprops {
   close: () => void;
+  adminbridge: boolean;
 }
-export default function LeftMenu({ close }: LeftMenuprops) {
+export default function LeftMenu({ close, adminbridge }: LeftMenuprops) {
   const [panels, setPanels] = useState({
     clients: false,
     Véhicules: false,
@@ -54,7 +55,9 @@ export default function LeftMenu({ close }: LeftMenuprops) {
           {panels.clients && (
             <div className={styles.dropdown}>
               <ul className={styles.ul}>
-                <li className={styles.li}>Ajouter un chauffeur</li>
+                <li className={styles.li}>
+                  <i className="fi fi-rr-bus-alt"></i>Ajouter un chauffeur
+                </li>
               </ul>
             </div>
           )}
@@ -72,7 +75,9 @@ export default function LeftMenu({ close }: LeftMenuprops) {
           {panels.Véhicules && (
             <div className={styles.dropdown}>
               <ul className={styles.ul}>
-                <li className={styles.li}>Ajouter un véhicule</li>
+                <li className={styles.li}>
+                  <i className="fi fi-rr-key-car"></i>Ajouter un véhicule
+                </li>
               </ul>
             </div>
           )}
@@ -90,8 +95,13 @@ export default function LeftMenu({ close }: LeftMenuprops) {
           {panels.Missions && (
             <div className={styles.dropdown}>
               <ul className={styles.ul}>
-                <li className={styles.li}>Ajouter une mission</li>
-                <li className={styles.li}>Ajouter un incident</li>
+                <li className={styles.li}>
+                  <i className="fi fi-rr-brain-half-lightbulb"></i>Ajouter une
+                  mission
+                </li>
+                <li className={styles.li}>
+                  <i className="fi fi-rr-car-crash"></i>Ajouter un incident
+                </li>
               </ul>
             </div>
           )}
@@ -109,36 +119,49 @@ export default function LeftMenu({ close }: LeftMenuprops) {
           {panels.Gestion_du_parc && (
             <div className={styles.dropdown}>
               <ul className={styles.ul}>
-                <li className={styles.li}>Entretien</li>
-                <li className={styles.li}>Suivi</li>
-                <li className={styles.li}>Carburant</li>
+                <li className={styles.li}>
+                  <i className="fi fi-rr-online-interview"></i>Entretien
+                </li>
+                <li className={styles.li}>
+                  <i className="fi fi-rr-map-location-track"></i>Suivi
+                </li>
+                <li className={styles.li}>
+                  <i className="fi fi-rr-fuel-gauge"></i>Carburant
+                </li>
               </ul>
             </div>
           )}
         </div>
-        <div className={styles.boxeach}>
-          <button
-            aria-label="Administration"
-            title="Administration"
-            type="button"
-            onClick={() => ToggelPanel("Administration")}
-          >
-            <i className="fi fi-rr-user-gear"></i>{" "}
-            <strong className={styles.text}>Administration</strong>
-          </button>
-          {panels.Administration && (
-            <div className={styles.dropdown}>
-              <ul className={styles.ul}>
-                <li className={styles.li}>Wilaya</li>
-                <li className={styles.li}>Ajouter un utilisateur</li>
-              </ul>
-            </div>
-          )}
-        </div>
+        {adminbridge && (
+          <div className={styles.boxeach}>
+            <button
+              aria-label="Administration"
+              title="Administration"
+              type="button"
+              onClick={() => ToggelPanel("Administration")}
+            >
+              <i className="fi fi-rr-user-gear"></i>{" "}
+              <strong className={styles.text}>Administration</strong>
+            </button>
+            {panels.Administration && (
+              <div className={styles.dropdown}>
+                <ul className={styles.ul}>
+                  <li className={styles.li}>
+                    <i className="fi fi-rr-brazil"></i>Wilaya
+                  </li>
+                  <li className={styles.li}>
+                    <i className="fi fi-rr-add-document"></i>Ajouter un
+                    utilisateur
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
       </div>
       <div className={styles.down}>
         <button className={styles.quit} onClick={() => routes.push("/")}>
-          <i className="fi fi-rr-person-to-door"></i>{" "}
+          <i className="fi fi-rr-person-to-door"></i>
           <strong className={styles.text}>Déconnecter</strong>
         </button>
       </div>

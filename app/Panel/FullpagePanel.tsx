@@ -1,7 +1,10 @@
 import styles from "./FullpagePanel.module.css";
 import LeftMenu from "./LeftMenu";
 import { useState } from "react";
-export default function FullpagePanel() {
+interface FullpagePanelprops {
+  adminbridge: boolean;
+}
+export default function FullpagePanel({ adminbridge }: FullpagePanelprops) {
   const [lefttoggle, setLeftToggle] = useState<boolean>(false);
   return (
     <div className={styles.container}>
@@ -16,7 +19,12 @@ export default function FullpagePanel() {
             </button>
           </div>
         )}
-        {lefttoggle && <LeftMenu close={() => setLeftToggle(false)} />}
+        {lefttoggle && (
+          <LeftMenu
+            close={() => setLeftToggle(false)}
+            adminbridge={adminbridge}
+          />
+        )}
       </div>
     </div>
   );
