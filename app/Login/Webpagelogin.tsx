@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Message from '@/Components/Message';
 import { useRouter } from 'next/navigation';
+import ForgetPassword from './ForgetPassword';
+export type Status =''|'account-found'|'account-not-found'|'changed'|'change-failed';
 export default function Webpagelogin(){
     const [name,setName]=useState<string>('');
     const [password,setPassword]=useState<string>('');
@@ -33,9 +35,11 @@ export default function Webpagelogin(){
         },3000)
         return()=>clearTimeout(time);
         }}
-
+    //logic for forget password 
+    const [forgetpassword,setForgetPassword]=useState<boolean>(false);
+    const [status,setStatus]=useState<Status>('');
     const handleForgotPassword = () => {
-        console.log('Forgot password functionality');
+        setForgetPassword(prev=>!prev);
     }
 
     const handlenonexsit=()=>{
@@ -71,7 +75,7 @@ export default function Webpagelogin(){
                     <h1 className={styles.texttile}>Gestion du Parc Automobile</h1>
                 </div>
                 
-                <form onSubmit={login} className={styles.inputhanlder}> {/**no injection now input good handled*/}
+                {!forgetpassword&&<form onSubmit={login} className={styles.inputhanlder}> {/**no injection now input good handled*/}
                     <input 
                         type="text" 
                         className={styles.inp} 
@@ -120,10 +124,15 @@ export default function Webpagelogin(){
                             Mot de passe oublié?
                         </button>
                     </div>
-                </form>
+                </form>}
+                {forgetpassword&&<ForgetPassword Statehandler={handleForgotPassword} setStatus={setStatus}/> }
             </div>
             {success&&<Message  text="Connexion réussie !" state={true}/>}
             {faild&&<Message text="Nom d’utilisateur ou mot de passe incorrect." state={false} />}
+            {status==='account-found' && <Message text="Compte vérifié." state={true} />}
+            {status==='account-not-found' && <Message text="Informations invalides." state={false} />}
+            {status==='changed' && (<Message text="Mot de passe modifié." state={true} />)}
+            {status==='change-failed' && (<Message text="Modification échouée." state={false} />)}
         </div>
     )
 }
