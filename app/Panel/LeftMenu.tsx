@@ -1,6 +1,7 @@
 import styles from "./LeftMenu.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 interface LeftMenuprops {
   close: () => void;
 }
@@ -12,7 +13,7 @@ export default function LeftMenu() {
     Gestion_du_parc: false,
     Administration: false,
   });
-
+  const routes = useRouter(); //signout
   const ToggelPanel = (panel: keyof typeof panels) => {
     setPanels(
       (prev) =>
@@ -41,18 +42,21 @@ export default function LeftMenu() {
       <div className={styles.body}>
         <div className={styles.boxeach}>
           <button
-            aria-label="clients"
-            title="clients"
+            aria-label="Chauffeurs"
+            title="Chauffeurs"
             type="button"
             onClick={() => ToggelPanel("clients")}
           >
-            clients
+            <i className="fi fi-rr-users-alt"></i>{" "}
+            <strong className={styles.text}>Chauffeurs</strong>
           </button>
-          <div className={styles.dropdown}>
-            <ul className={styles.ul}>
-              <li className={styles.li}></li>
-            </ul>
-          </div>
+          {panels.clients && (
+            <div className={styles.dropdown}>
+              <ul className={styles.ul}>
+                <li className={styles.li}>Ajouter un chauffeur</li>
+              </ul>
+            </div>
+          )}
         </div>
         <div className={styles.boxeach}>
           <button
@@ -61,13 +65,16 @@ export default function LeftMenu() {
             type="button"
             onClick={() => ToggelPanel("Véhicules")}
           >
-            Véhicules
+            <i className="fi fi-rr-cars"></i>{" "}
+            <strong className={styles.text}>Véhicules</strong>
           </button>
-          <div className={styles.dropdown}>
-            <ul className={styles.ul}>
-              <li className={styles.li}></li>
-            </ul>
-          </div>
+          {panels.Véhicules && (
+            <div className={styles.dropdown}>
+              <ul className={styles.ul}>
+                <li className={styles.li}>Ajouter un véhicule</li>
+              </ul>
+            </div>
+          )}
         </div>
         <div className={styles.boxeach}>
           <button
@@ -76,13 +83,17 @@ export default function LeftMenu() {
             type="button"
             onClick={() => ToggelPanel("Missions")}
           >
-            Missions
+            <i className="fi fi-rr-task-checklist"></i>{" "}
+            <strong className={styles.text}>Missions</strong>
           </button>
-          <div className={styles.dropdown}>
-            <ul className={styles.ul}>
-              <li className={styles.li}></li>
-            </ul>
-          </div>
+          {panels.Missions && (
+            <div className={styles.dropdown}>
+              <ul className={styles.ul}>
+                <li className={styles.li}>Ajouter une mission</li>
+                <li className={styles.li}>Ajouter un incident</li>
+              </ul>
+            </div>
+          )}
         </div>
         <div className={styles.boxeach}>
           <button
@@ -91,13 +102,18 @@ export default function LeftMenu() {
             type="button"
             onClick={() => ToggelPanel("Gestion_du_parc")}
           >
-            Gestion du parc
+            <i className="fi fi-rr-dolly-flatbed"></i>{" "}
+            <strong className={styles.text}>Gestion du parc</strong>
           </button>
-          <div className={styles.dropdown}>
-            <ul className={styles.ul}>
-              <li className={styles.li}></li>
-            </ul>
-          </div>
+          {panels.Gestion_du_parc && (
+            <div className={styles.dropdown}>
+              <ul className={styles.ul}>
+                <li className={styles.li}>Entretien</li>
+                <li className={styles.li}>Suivi</li>
+                <li className={styles.li}>Carburant</li>
+              </ul>
+            </div>
+          )}
         </div>
         <div className={styles.boxeach}>
           <button
@@ -106,14 +122,24 @@ export default function LeftMenu() {
             type="button"
             onClick={() => ToggelPanel("Administration")}
           >
-            Administration
+            <i className="fi fi-rr-user-gear"></i>{" "}
+            <strong className={styles.text}>Administration</strong>
           </button>
-          <div className={styles.dropdown}>
-            <ul className={styles.ul}>
-              <li className={styles.li}></li>
-            </ul>
-          </div>
+          {panels.Administration && (
+            <div className={styles.dropdown}>
+              <ul className={styles.ul}>
+                <li className={styles.li}>Wilaya</li>
+                <li className={styles.li}>Ajouter un utilisateur</li>
+              </ul>
+            </div>
+          )}
         </div>
+      </div>
+      <div className={styles.down}>
+        <button className={styles.quit} onClick={() => routes.push("/")}>
+          <i className="fi fi-rr-person-to-door"></i>{" "}
+          <strong className={styles.text}>Déconnecter</strong>
+        </button>
       </div>
     </div>
   );
