@@ -1,26 +1,21 @@
 import styles from './Topbar.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
+import { ViewTopBar } from './Homewebpage';
 interface TopbarProps {
-  setHome: React.Dispatch<React.SetStateAction<boolean>>;
-  setFeedback: React.Dispatch<React.SetStateAction<boolean>>;
-  setProfile: React.Dispatch<React.SetStateAction<boolean>>;
-  setSettings: React.Dispatch<React.SetStateAction<boolean>>;
+  setActiveView: React.Dispatch<React.SetStateAction<ViewTopBar>>;
+  setSettingsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function Topbar({ setHome, setFeedback, setProfile, setSettings }: TopbarProps) {
-  const routes = useRouter();
+export default function Topbar({ setActiveView, setSettingsOpen}: TopbarProps) {
+  const routes = useRouter(); //for sign out
 
   const toggle = (val: 'feedback' | 'home' | 'profile' | 'settings') => {
-    setHome(val === 'home');
-    setFeedback(val === 'feedback');
-    setProfile(val === 'profile');
-    if (val === 'settings') {
-      setSettings(true); // overlayed, so no need to reset others
-    } else {
-      setSettings(false);
-    }
+    if(val==='settings'){ setSettingsOpen(true)}
+    else{
+    setSettingsOpen(false);
+    setActiveView(val)
+        }
   };
 
   return (
