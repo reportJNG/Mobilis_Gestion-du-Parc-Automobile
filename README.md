@@ -2,7 +2,10 @@ here we will type all kind of comments and old one should be deleted (arabic-eng
 hamza:{
 login <=== all done
 sign-up <== all done
-user <== normal home page ||2|| <==only home then go panel
+user <== {Topbar} <==all done
+
+{body,about} <== working on
+
 panel <== admin + workers page ||3||
 logic <== logic here of the checking in login if (user|worker|admin) to redirect it to best webpage ||4||
 
