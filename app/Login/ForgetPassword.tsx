@@ -52,7 +52,7 @@ export default function ForgetPassword({Statehandler,setStatus}:ForgetPasswordpr
         routes.push('/signup');
     }
     const handleremeberpassword=()=>{
-        routes.push('/');
+        Statehandler();
     }
     return(
         <div className={styles.container}>{/**two form's here one before confirme username exsit and one is after */}
