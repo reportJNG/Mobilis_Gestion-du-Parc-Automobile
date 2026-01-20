@@ -1,28 +1,28 @@
-@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url("https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
 .container {
-background: linear-gradient(
-  135deg,
-  #a7f3d0 0%,    /* lightest green start */
-  #dafae5 5%,
-  #e0fdf4 10%,
-  #d9fce6 15%,
-  #ccf9d5 20%,
-  #bbf7d0 25%,
-  #b2f5ea 30%,
-  #a7f3d0 35%,
-  #86efac 40%,
-  #7ddcb1 45%,
-  #6ee7b7 50%,
-  #5eead4 55%,
-  #4ade80 60%,
-  #34d399 65%,
-  #22c55e 70%,
-  #10b981 75%,
-  #0f9f6f 80%,
-  #059669 85%,
-  #047857 90%,    /* darkest green end */
-  #046c50 100%
-);
+  background: linear-gradient(
+    135deg,
+    #a7f3d0 0%,
+    #dafae5 5%,
+    #e0fdf4 10%,
+    #d9fce6 15%,
+    #ccf9d5 20%,
+    #bbf7d0 25%,
+    #b2f5ea 30%,
+    #a7f3d0 35%,
+    #86efac 40%,
+    #7ddcb1 45%,
+    #6ee7b7 50%,
+    #5eead4 55%,
+    #4ade80 60%,
+    #34d399 65%,
+    #22c55e 70%,
+    #10b981 75%,
+    #0f9f6f 80%,
+    #059669 85%,
+    #047857 90%,
+    #046c50 100%
+  );
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,7 +30,7 @@ background: linear-gradient(
   box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
   position: relative;
   z-index: 50;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .left {
@@ -41,6 +41,7 @@ background: linear-gradient(
 
 .imagelogo {
   width: 60px;
+  border-radius: 30px;
   height: 60px;
 }
 
@@ -51,7 +52,11 @@ background: linear-gradient(
 }
 
 .title {
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Segoe UI",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   font-weight: 700;
   font-size: 1.875rem;
   background: linear-gradient(to right, #ffffff, #f0fdf4);
@@ -108,9 +113,8 @@ background: linear-gradient(
   transform: scale(1.1);
 }
 
-
 .right button::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -125,7 +129,6 @@ background: linear-gradient(
 .right button:hover::after {
   width: 70%;
 }
-
 
 .home:hover {
   background: rgba(34, 197, 94, 0.3);
@@ -149,21 +152,26 @@ background: linear-gradient(
 }
 
 @keyframes doorOpen {
-  0% { transform: translateY(-2px); }
-  50% { transform: translateY(-2px) rotate(-5deg); }
-  100% { transform: translateY(-2px); }
+  0% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(-2px) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
 }
-
 
 @media (max-width: 768px) {
   .container {
     padding: 0.5rem 1rem;
   }
-  
+
   .title {
     font-size: 1.5rem;
   }
-  
+
   .right button {
     width: 40px;
     height: 40px;
@@ -175,20 +183,20 @@ background: linear-gradient(
   .container {
     padding: 0.5rem;
   }
-  
+
   .title {
     font-size: 1.25rem;
   }
-  
+
   .imagelogo {
     width: 32px;
     height: 32px;
   }
-  
+
   .right {
     gap: 0.25rem;
   }
-  
+
   .right button {
     width: 36px;
     height: 36px;
