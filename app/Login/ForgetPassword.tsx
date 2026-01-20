@@ -102,6 +102,8 @@ export default function ForgetPassword({
       setFormData((prev) => ({ ...prev, password: "", confirmepassword: "" }));
       setTimeout(() => {
         setStatus("");
+        setConfirme(false);
+        setUsername("");
       }, 3000);
     }
   };
