@@ -27,8 +27,9 @@ export default function Webpagelogin(){
         }
         else{ // connected
         setSuccess(true)
-        const time = setTimeout(()=>{//here send it to webpage normal or panel check the user role
+        const time = setTimeout(()=>{//here send it to webpage normal or panel check the user role IF 'user' 'worker' 'admin'
             setSuccess(false);
+            routes.push('/Home'); //here normal users always just testing
         },3000)
         return()=>clearTimeout(time);
         }}

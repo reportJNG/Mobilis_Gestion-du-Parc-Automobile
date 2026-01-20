@@ -1,0 +1,197 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+.container {
+background: linear-gradient(
+  135deg,
+  #a7f3d0 0%,    /* lightest green start */
+  #dafae5 5%,
+  #e0fdf4 10%,
+  #d9fce6 15%,
+  #ccf9d5 20%,
+  #bbf7d0 25%,
+  #b2f5ea 30%,
+  #a7f3d0 35%,
+  #86efac 40%,
+  #7ddcb1 45%,
+  #6ee7b7 50%,
+  #5eead4 55%,
+  #4ade80 60%,
+  #34d399 65%,
+  #22c55e 70%,
+  #10b981 75%,
+  #0f9f6f 80%,
+  #059669 85%,
+  #047857 90%,    /* darkest green end */
+  #046c50 100%
+);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+  position: relative;
+  z-index: 50;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.imagelogo {
+  width: 60px;
+  height: 60px;
+}
+
+.mid {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.title {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 1.875rem;
+  background: linear-gradient(to right, #ffffff, #f0fdf4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.right button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  font-size: 1.25rem;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.right button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.right button:active {
+  transform: translateY(0);
+}
+
+.right button i {
+  transition: transform 0.3s ease;
+}
+
+.right button:hover i {
+  transform: scale(1.1);
+}
+
+
+.right button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: white;
+  border-radius: 3px 3px 0 0;
+  transition: width 0.3s ease;
+}
+
+.right button:hover::after {
+  width: 70%;
+}
+
+
+.home:hover {
+  background: rgba(34, 197, 94, 0.3);
+}
+
+.profile:hover {
+  background: rgba(234, 179, 8, 0.3);
+}
+
+.feedback:hover {
+  background: rgba(59, 130, 246, 0.3);
+}
+
+.settings:hover {
+  background: rgba(168, 85, 247, 0.3);
+}
+
+.quitbtndoor:hover {
+  background: rgba(239, 68, 68, 0.3);
+  animation: doorOpen 0.5s ease;
+}
+
+@keyframes doorOpen {
+  0% { transform: translateY(-2px); }
+  50% { transform: translateY(-2px) rotate(-5deg); }
+  100% { transform: translateY(-2px); }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem 1rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .right button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .imagelogo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .right {
+    gap: 0.25rem;
+  }
+  
+  .right button {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
