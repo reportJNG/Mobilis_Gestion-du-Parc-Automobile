@@ -1,205 +1,204 @@
-@import url("https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
 .container {
-  background: linear-gradient(
-    135deg,
-    #a7f3d0 0%,
-    #dafae5 5%,
-    #e0fdf4 10%,
-    #d9fce6 15%,
-    #ccf9d5 20%,
-    #bbf7d0 25%,
-    #b2f5ea 30%,
-    #a7f3d0 35%,
-    #86efac 40%,
-    #7ddcb1 45%,
-    #6ee7b7 50%,
-    #5eead4 55%,
-    #4ade80 60%,
-    #34d399 65%,
-    #22c55e 70%,
-    #10b981 75%,
-    #0f9f6f 80%,
-    #059669 85%,
-    #047857 90%,
-    #046c50 100%
-  );
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1.5rem;
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
-  position: relative;
-  z-index: 50;
-  border-bottom: 1px solid rgb(255, 255, 255);
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .left {
+  flex: 1;
   display: flex;
   align-items: center;
-  flex: 1;
 }
 
-.imagelogo {
-  width: 60px;
-  border-radius: 30px;
-  height: 60px;
+.logoimage {
+  width: 45px !important;
+  height: 45px !important;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logoimage:hover {
+  transform: scale(1.05);
+  border-color: #4cc9f0;
+  box-shadow: 0 0 15px rgba(76, 201, 240, 0.3);
 }
 
 .mid {
+  flex: 2;
   display: flex;
   justify-content: center;
-  flex: 1;
 }
 
 .title {
-  font-family:
-    "Segoe UI",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-size: 2rem;
   font-weight: 700;
-  font-size: 1.875rem;
-  background: linear-gradient(to right, #ffffff, #f0fdf4);
+  background: linear-gradient(90deg, #4cc9f0, #4361ee);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  letter-spacing: -0.5px;
+  color: transparent;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin: 0;
+  transition: all 0.3s ease;
+}
+
+.title:hover {
+  transform: translateY(-2px);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.5rem;
   flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.right button {
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
-  width: 44px;
-  height: 44px;
+.right span {
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: white;
-  font-size: 1.25rem;
-  backdrop-filter: blur(8px);
+  gap: 0.5rem;
   position: relative;
   overflow: hidden;
 }
 
-.right button:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.right span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
 }
 
-.right button:active {
-  transform: translateY(0);
+.right span:hover::before {
+  left: 100%;
 }
 
-.right button i {
+.right span:hover {
+  color: black;
+}
+
+.right span:active {
+  transform: translateY(-1px);
+}
+
+.right span::after {
+  font-size: 1.2rem;
   transition: transform 0.3s ease;
 }
 
-.right button:hover i {
-  transform: scale(1.1);
+.right span:hover::after {
+  transform: translateX(3px);
 }
 
-.right button::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: white;
-  border-radius: 3px 3px 0 0;
-  transition: width 0.3s ease;
-}
-
-.right button:hover::after {
-  width: 70%;
-}
-
-.home:hover {
-  background: rgba(34, 197, 94, 0.3);
-}
-
-.profile:hover {
-  background: rgba(234, 179, 8, 0.3);
-}
-
-.feedback:hover {
-  background: rgba(59, 130, 246, 0.3);
-}
-
-.settings:hover {
-  background: rgba(168, 85, 247, 0.3);
-}
-
-.quitbtndoor:hover {
-  background: rgba(239, 68, 68, 0.3);
-  animation: doorOpen 0.5s ease;
-}
-
-@keyframes doorOpen {
-  0% {
-    transform: translateY(-2px);
-  }
-  50% {
-    transform: translateY(-2px) rotate(-5deg);
-  }
-  100% {
-    transform: translateY(-2px);
-  }
+.right span:focus-visible {
+  outline: 3px solid #4cc9f0;
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
   }
 
   .title {
     font-size: 1.5rem;
   }
 
-  .right button {
-    width: 40px;
-    height: 40px;
-    font-size: 1.125rem;
+  .logoimage {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .right span {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 0.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .left,
+  .mid,
+  .right {
+    justify-content: center;
+    width: 100%;
   }
 
   .title {
-    font-size: 1.25rem;
+    font-size: 1.8rem;
   }
 
-  .imagelogo {
-    width: 32px;
-    height: 32px;
+  .mid {
+    order: -1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: fadeInDown 0.5s ease-out;
+}
+
+@media (prefers-color-scheme: light) {
+  .container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  .right {
-    gap: 0.25rem;
+  .logoimage {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media print {
+  .container {
+    background: white !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #ddd !important;
   }
 
-  .right button {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
+  .title {
+    background: black !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    color: black !important;
+  }
+
+  .right span {
+    display: none !important;
   }
 }

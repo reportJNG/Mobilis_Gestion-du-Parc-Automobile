@@ -20,7 +20,8 @@ export default function Webpagelogin() {
   const routes = useRouter();
 
   //new code here after major updates |admin|worker|
-  const [pathcode, setPathcode] = useState<string>(""); //emptey is still not declared
+  const ADMIN_PASS = "A9$kR7!mQe2Z@Wf#T8pL";
+  const WORKER_PASS = "X4!vM@2Pq9#LrS7$eZkF";
 
   const login = async (e: React.FormEvent) => {
     // here we check the data if it exsit in database so we can connect to webpage
@@ -50,11 +51,10 @@ export default function Webpagelogin() {
       const time = setTimeout(() => {
         //here send worker to worker panel admin to admin panel
         if (data.user?.role === "admin") {
-          setPathcode("A9$kR7!mQe2Z@Wf#T8pL");
-          routes.push(`/Login/Security?key=${pathcode}`);
+          routes.push(`/Login/Security?key=${ADMIN_PASS}`);
         }
         if (data.user?.role === "worker") {
-          routes.push(`/Login/Security?key=${pathcode}`);
+          routes.push(`/Login/Security?key=${WORKER_PASS}`);
         }
         setSuccess(false);
       }, 3000);

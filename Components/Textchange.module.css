@@ -4,17 +4,12 @@
   justify-content: center;
   min-height: 4rem;
   padding: 1rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: transparent;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .changedText {
-  color: #3b82f6;
+  color: #000000;
   font-size: 2.5rem;
   font-weight: 700;
   font-family:
@@ -28,14 +23,9 @@
   text-align: center;
   min-height: 3rem;
   display: inline-block;
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
+  text-align: center;
   position: relative;
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
   transition: all 0.3s ease;
 }
 
@@ -43,52 +33,33 @@
   content: "";
   position: absolute;
   inset: -2px;
-  background: linear-gradient(
-    135deg,
-    #3b82f6 0%,
-    rgba(139, 92, 246, 0.3) 30%,
-    rgba(236, 72, 153, 0.3) 70%,
-    #ec4899 100%
-  );
+  background: linear-gradient(135deg, #000000 0%, #666666 50%, #000000 100%);
   border-radius: 6px;
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;
+  filter: blur(2px);
 }
 
 .changedText:hover::before {
-  opacity: 0.6;
+  opacity: 0.2;
 }
 
 .changedText:hover {
   transform: translateY(-1px);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cursor {
   display: inline-block;
-  width: 3px;
+  width: 2px;
   height: 3rem;
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #ec4899);
+  background: #000000;
   margin-left: 4px;
-  border-radius: 2px;
-  animation:
-    blink 1s infinite,
-    pulse 2s infinite alternate;
+  border-radius: 1px;
+  animation: blink 1s infinite;
   position: relative;
   top: 4px;
-}
-
-.cursor::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, #3b82f6, #ec4899);
-  border-radius: 2px;
-  opacity: 0.5;
-  filter: blur(4px);
 }
 
 @keyframes blink {
@@ -108,26 +79,10 @@
   }
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow:
-      0 0 8px #3b82f6,
-      0 0 16px rgba(139, 92, 246, 0.4),
-      0 0 24px rgba(236, 72, 153, 0.2);
-  }
-  100% {
-    box-shadow:
-      0 0 12px #8b5cf6,
-      0 0 24px rgba(59, 130, 246, 0.5),
-      0 0 36px rgba(236, 72, 153, 0.3);
-  }
-}
-
 @media (max-width: 768px) {
   .container {
     padding: 0.75rem;
     min-height: 3.5rem;
-    border-radius: 8px;
   }
 
   .changedText {
@@ -141,41 +96,19 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .container {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.2),
-      0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  .changedText {
+    color: #ffffff;
   }
 
-  .changedText {
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    text-shadow: 0 2px 4px rgba(96, 165, 250, 0.2);
+  .changedText::before {
+    background: linear-gradient(135deg, #ffffff 0%, #999999 50%, #ffffff 100%);
+  }
+
+  .changedText:hover {
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
   }
 
   .cursor {
-    background: linear-gradient(to bottom, #60a5fa, #a78bfa, #f472b6);
-  }
-
-  .cursor::after {
-    background: linear-gradient(to bottom, #60a5fa, #f472b6);
-  }
-
-  @keyframes pulse {
-    0% {
-      box-shadow:
-        0 0 8px #60a5fa,
-        0 0 16px rgba(167, 139, 250, 0.5),
-        0 0 24px rgba(244, 114, 182, 0.3);
-    }
-    100% {
-      box-shadow:
-        0 0 12px #a78bfa,
-        0 0 24px rgba(96, 165, 250, 0.6),
-        0 0 36px rgba(244, 114, 182, 0.4);
-    }
+    background: #ffffff;
   }
 }

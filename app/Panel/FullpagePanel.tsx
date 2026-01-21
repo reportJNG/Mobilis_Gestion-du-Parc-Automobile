@@ -4,8 +4,12 @@ import { useState } from "react";
 interface FullpagePanelprops {
   adminbridge: boolean;
 }
+export type ViewTopBar = "home" | "feedback" | "profile";
+
 export default function FullpagePanel({ adminbridge }: FullpagePanelprops) {
   const [lefttoggle, setLeftToggle] = useState<boolean>(false);
+  const [activeView, setActiveView] = useState<ViewTopBar>("home");
+  const [settingsOpen, setSettingsOpen] = useState(false);
   return (
     <div className={styles.container}>
       <div className={styles.leftmenu}>
