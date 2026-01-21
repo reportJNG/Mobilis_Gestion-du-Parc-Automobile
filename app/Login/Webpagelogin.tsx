@@ -3,13 +3,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Message from "@/Components/Message";
 import { useRouter } from "next/navigation";
-import ForgetPassword from "./ForgetPassword";
-export type Status =
-  | ""
-  | "account-found"
-  | "account-not-found"
-  | "changed"
-  | "change-failed";
 interface LoginResponse {
   success: boolean;
   user?: {
@@ -25,6 +18,10 @@ export default function Webpagelogin() {
   const [success, setSuccess] = useState<boolean>(false);
   const [faild, setFaild] = useState<boolean>(false);
   const routes = useRouter();
+
+  //new code here after major updates |admin|worker|
+  const [pathcode, setPathcode] = useState<string>(""); //emptey is still not declared
+
   const login = async (e: React.FormEvent) => {
     // here we check the data if it exsit in database so we can connect to webpage
     e.preventDefault();
@@ -37,42 +34,33 @@ export default function Webpagelogin() {
       }),
     });
     const data: LoginResponse = await res.json();
-    if (!data.success) {
+    if (
+      !data.success &&
+      data.user?.role !== "admin" &&
+      data.user?.role !== "worker"
+    ) {
       setFaild(true);
       const time = setTimeout(() => {
         setFaild(false);
       }, 3000);
       return () => clearTimeout(time);
     } else {
-      // connected
+      // connected {admin||worker}
       setSuccess(true);
       const time = setTimeout(() => {
-        //here send it to webpage normal or panel check the user role IF 'user' 'worker' 'admin'
-        if (data.user?.role === "user") {
-          routes.push("/Home");
-        }
+        //here send worker to worker panel admin to admin panel
         if (data.user?.role === "admin") {
-          routes.push("/Panel?t07=true");
+          setPathcode("A9$kR7!mQe2Z@Wf#T8pL");
+          routes.push(`/Login/Security?key=${pathcode}`);
         }
         if (data.user?.role === "worker") {
-          routes.push("/Panel?t07=false");
+          routes.push(`/Login/Security?key=${pathcode}`);
         }
         setSuccess(false);
       }, 3000);
       return () => clearTimeout(time);
     }
   };
-  //logic for forget password
-  const [forgetpassword, setForgetPassword] = useState<boolean>(false);
-  const [status, setStatus] = useState<Status>("");
-  const handleForgotPassword = () => {
-    setForgetPassword((prev) => !prev);
-  };
-
-  const handlenonexsit = () => {
-    routes.push("/signup");
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.image}>
@@ -97,70 +85,46 @@ export default function Webpagelogin() {
             priority
           />
         </div>
-
         <div className={styles.title}>
           <h1 className={styles.texttile}>Gestion du Parc Automobile</h1>
         </div>
-
-        {!forgetpassword && (
-          <form onSubmit={login} className={styles.inputhanlder}>
-            {" "}
-            {/**no injection now input good handled*/}
-            <input
-              type="text"
-              className={styles.inp}
-              maxLength={20}
-              minLength={3}
-              value={name}
-              onChange={(e) => {
-                const input = e.target.value;
-                const clean = input.replace(/[^a-zA-Z0-9]/g, "");
-                setName(clean);
-              }}
-              placeholder="Nom d'utilisateur"
-              required
-            />
-            <input
-              type="password"
-              className={styles.inp}
-              maxLength={8}
-              minLength={8}
-              value={password}
-              onChange={(e) => {
-                const input = e.target.value;
-                const clean = input.replace(/[^a-zA-Z0-9]/g, "");
-                setPassword(clean);
-              }}
-              placeholder="Mot de passe"
-              required
-            />
-            <button className={styles.button} type="submit">
-              Se connecter
-            </button>
-            <div className={styles.linksContainer}>
-              <button
-                type="button"
-                className={styles.forget}
-                onClick={handlenonexsit}
-              >
-                Pas de compte ?
-              </button>
-              <button
-                type="button"
-                className={styles.forget}
-                onClick={handleForgotPassword}
-              >
-                Mot de passe oublié?
-              </button>
-            </div>
-          </form>
-        )}
-        {forgetpassword && (
-          <ForgetPassword
-            Statehandler={handleForgotPassword}
-            setStatus={setStatus}
+        (
+        <form onSubmit={login} className={styles.inputhanlder}>
+          {/**no injection now input good handled*/}
+          <input
+            type="text"
+            className={styles.inp}
+            maxLength={20}
+            minLength={3}
+            value={name}
+            onChange={(e) => {
+              const input = e.target.value;
+              const clean = input.replace(/[^a-zA-Z0-9]/g, "");
+              setName(clean);
+            }}
+            placeholder="Nom d'utilisateur"
+            required
           />
-        )}
+          <input
+            type="password"
+            className={styles.inp}
+            maxLength={8}
+            minLength={8}
+            value={password}
+            onChange={(e) => {
+              const input = e.target.value;
+              const clean = input.replace(/[^a-zA-Z0-9]/g, "");
+              setPassword(clean);
+            }}
+            placeholder="Mot de passe"
+            required
+          />
+          <button className={styles.button} type="submit">
+            Se connecter
+          </button>
+          <div className={styles.linksContainer}></div>
+        </form>
+        )
       </div>
       {success && <Message text="Connexion réussie !" state={true} />}
       {faild && (
@@ -168,18 +132,6 @@ export default function Webpagelogin() {
           text="Nom d’utilisateur ou mot de passe incorrect."
           state={false}
         />
-      )}
-      {status === "account-found" && (
-        <Message text="Compte vérifié." state={true} />
-      )}
-      {status === "account-not-found" && (
-        <Message text="Informations invalides." state={false} />
-      )}
-      {status === "changed" && (
-        <Message text="Mot de passe modifié." state={true} />
-      )}
-      {status === "change-failed" && (
-        <Message text="Modification échouée." state={false} />
       )}
     </div>
   );
