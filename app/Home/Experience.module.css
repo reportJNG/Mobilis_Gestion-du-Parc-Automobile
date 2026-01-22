@@ -1,0 +1,137 @@
+.containersquared {
+  background-color: var(--bg);
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.containersquared:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary);
+}
+
+.boxtheme {
+  width: 48px;
+  height: 48px;
+  background-color: var(--primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.boxtheme:hover {
+  transform: rotate(5deg) scale(1.05);
+  background-color: var(--primary);
+}
+
+.count {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+  display: inline-block;
+  min-height: 3rem;
+}
+
+.count::after {
+  content: "+";
+  font-size: 1.5rem;
+  margin-left: 2px;
+  color: var(--primary);
+  opacity: 0.7;
+}
+
+.texts {
+  margin-top: 0.5rem;
+}
+
+.texttitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
+.textcom {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  line-height: 1.4;
+}
+
+/* Dark theme specific styles */
+:global([data-theme="dark"]) .texttitle {
+  color: white;
+}
+
+:global([data-theme="dark"]) .containersquared {
+  border-color: #333;
+}
+
+:global([data-theme="dark"]) .count,
+:global([data-theme="dark"]) .count::after {
+  color: white;
+}
+
+/* Loading animation for the number increment */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.count {
+  animation: pulse 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .containersquared {
+    padding: 1rem;
+    min-width: 180px;
+  }
+
+  .boxtheme {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .count {
+    font-size: 2rem;
+    min-height: 2.5rem;
+  }
+}
+
+/* Counter increment animation */
+@keyframes increment {
+  0% {
+    opacity: 0.5;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count {
+  animation: increment 0.5s ease-out forwards;
+}
