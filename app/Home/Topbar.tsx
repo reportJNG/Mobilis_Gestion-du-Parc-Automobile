@@ -24,7 +24,7 @@ export default function Topbar() {
           onClick={() => routes.push("/Login")}
           className={styles.loginButton}
         >
-          Login
+          Login <i className="fi fi-rr-entrance"></i>
         </span>
       </div>
     </div>

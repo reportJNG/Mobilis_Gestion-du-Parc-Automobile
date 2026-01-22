@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
+@import url("https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
 .container {
   display: flex;
   align-items: center;
@@ -145,7 +145,13 @@
   outline-offset: 2px;
   border-radius: 8px;
 }
-
+.loginButton {
+  text-align: center;
+  align-items: center;
+}
+.loginButton i {
+  font-size: 18px;
+}
 @media (max-width: 1024px) {
   .container {
     padding: 1rem 2rem;

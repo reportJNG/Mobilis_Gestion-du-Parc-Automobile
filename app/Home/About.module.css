@@ -1,0 +1,192 @@
+@import url("https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css");
+.container {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 3rem 2rem 1.5rem;
+  margin-top: auto;
+  border-top: 3px solid #22c55e;
+  position: relative;
+  width: 100%;
+}
+
+.headerright {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.texth {
+  color: #22c55e;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.leftlinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #333333;
+}
+
+.leftlinks span {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.leftlinks span:hover {
+  color: #22c55e;
+  transform: translateY(-2px);
+}
+
+.leftlinks span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #22c55e;
+  transition: width 0.3s ease;
+}
+
+.leftlinks span:hover::after {
+  width: 100%;
+}
+
+.socialacc {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.socialacc span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #111111;
+  border: 2px solid #333333;
+}
+
+.socialacc span:hover {
+  transform: translateY(-3px);
+  border-color: #22c55e;
+}
+
+.socialacc span i {
+  font-size: 1.25rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.instgram:hover {
+  background: linear-gradient(
+    45deg,
+    #f58529,
+    #feda77,
+    #dd2a7b,
+    #8134af,
+    #515bd4
+  ) !important;
+}
+.facebook:hover {
+  background-color: #1877f2 !important;
+}
+.x:hover {
+  background-color: #000000 !important;
+}
+.youtube:hover {
+  background-color: #ff0000 !important;
+}
+.linkin:hover {
+  background-color: #0a66c2 !important;
+}
+.tiktok:hover {
+  background-color: #08021d !important;
+}
+
+.socialacc span:hover i {
+  color: #ffffff;
+}
+
+.pp {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid #333333;
+}
+
+.pp span {
+  color: #888888;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.pp span:hover {
+  color: #22c55e;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .texth {
+    font-size: 1.5rem;
+  }
+
+  .leftlinks {
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .leftlinks span {
+    font-size: 0.9rem;
+  }
+
+  .socialacc {
+    gap: 1rem;
+  }
+
+  .socialacc span {
+    width: 40px;
+    height: 40px;
+  }
+
+  .socialacc span i {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .texth {
+    font-size: 1.25rem;
+  }
+
+  .leftlinks {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .leftlinks span {
+    font-size: 0.85rem;
+  }
+}
