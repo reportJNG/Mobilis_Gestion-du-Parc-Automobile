@@ -1,4 +1,4 @@
-import styles from "./squareexpericence.module.css";
+import styles from "./Experience.module.css";
 import React from "react";
 import { useEffect } from "react";
 type squareexpericenceporops = {
@@ -18,7 +18,7 @@ const incremeant = (
   }, 10000);
 };
 
-export default function Squareexpericence({
+export default function Experince({
   text,
   setnum,
   num,

@@ -33,7 +33,6 @@
   content: "";
   position: absolute;
   inset: -2px;
-  background: linear-gradient(135deg, #000000 0%, #666666 50%, #000000 100%);
   border-radius: 6px;
   z-index: -1;
   opacity: 0;
@@ -47,14 +46,13 @@
 
 .changedText:hover {
   transform: translateY(-1px);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cursor {
   display: inline-block;
   width: 2px;
   height: 3rem;
-  background: #000000;
+  background: #09ff00;
   margin-left: 4px;
   border-radius: 1px;
   animation: blink 1s infinite;
@@ -100,15 +98,7 @@
     color: #ffffff;
   }
 
-  .changedText::before {
-    background: linear-gradient(135deg, #ffffff 0%, #999999 50%, #ffffff 100%);
-  }
-
-  .changedText:hover {
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-  }
-
   .cursor {
-    background: #ffffff;
+    background: #00ff00;
   }
 }

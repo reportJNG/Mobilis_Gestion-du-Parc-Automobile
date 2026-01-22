@@ -1,34 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap");
 @import url("https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 3rem;
-  background: linear-gradient(
-    135deg,
-    #a7f3d0 0%,
-    #dafae5 5%,
-    #e0fdf4 10%,
-    #d9fce6 15%,
-    #ccf9d5 20%,
-    #bbf7d0 25%,
-    #b2f5ea 30%,
-    #a7f3d0 35%,
-    #86efac 40%,
-    #7ddcb1 45%,
-    #6ee7b7 50%,
-    #5eead4 55%,
-    #4ade80 60%,
-    #34d399 65%,
-    #22c55e 70%,
-    #10b981 75%,
-    #0f9f6f 80%,
-    #059669 85%,
-    #047857 90%,
-    #046c50 100%
-  );
-  border-bottom: 1px solid #e5e7eb;
+  background-color: #000000;
+  border-bottom: 3px solid #22c55e;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -59,13 +37,7 @@
 }
 
 .title {
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2.25rem;
   font-weight: 800;
   color: #111827;
@@ -115,7 +87,7 @@
 }
 
 .right span:hover {
-  color: #000000;
+  color: #22c55e;
 }
 
 .right span:active {
@@ -285,14 +257,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .container {
-    background-color: #111827;
-    border-bottom-color: #374151;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-
   .title {
-    color: #f9fafb;
+    color: #15c573;
   }
 
   .title::after {
