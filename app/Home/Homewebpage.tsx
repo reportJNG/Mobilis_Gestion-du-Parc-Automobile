@@ -57,7 +57,7 @@ export default function Homewebpage() {
                   </button>
                   <button
                     className={`${styles.button} ${styles.secondaryBtn}`}
-                    onClick={() => routes.push("/UserReport")}
+                    onClick={() => routes.push("/Login/Help")}
                   >
                     Nous contacter
                   </button>
