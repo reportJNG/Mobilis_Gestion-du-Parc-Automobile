@@ -412,3 +412,249 @@
     max-height: 30vh;
   }
 }
+
+.backbutton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.backbtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(42, 89, 52, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.backbtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #4caf50, #2a5934);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+}
+
+.backbtn:hover::before {
+  opacity: 1;
+}
+
+.backbtn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    0 8px 30px rgba(76, 175, 80, 0.3),
+    0 0 0 1px rgba(42, 89, 52, 0.2);
+}
+
+.backbtn:active {
+  transform: translateY(0) scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+.backbtn i {
+  font-size: 1.3rem;
+  color: #2a5934;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.backbtn:hover i {
+  color: white;
+}
+
+.backbtn::after {
+  content: "Retour";
+  position: absolute;
+  left: 60px;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.backbtn:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.backbtn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(76, 175, 80, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s ease;
+}
+
+.backbtn:active::after {
+  transform: translate(-50%, -50%) scale(10);
+  opacity: 0;
+}
+
+.backbtn:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(76, 175, 80, 0.5),
+    0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.backbutton {
+  animation: slideInLeft 0.5s ease-out 0.3s both;
+}
+
+.backbtn.minimal {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #2a5934;
+}
+
+.backbtn.minimal:hover {
+  background: #2a5934;
+  border-color: transparent;
+}
+
+.backbtn.minimal i {
+  color: #2a5934;
+}
+
+.backbtn.minimal:hover i {
+  color: white;
+}
+
+.backbtn.floating {
+  background: white;
+  box-shadow:
+    0 10px 40px rgba(42, 89, 52, 0.2),
+    0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+.backbtn.floating:hover {
+  background: linear-gradient(135deg, #4caf50, #2a5934);
+  box-shadow:
+    0 15px 50px rgba(76, 175, 80, 0.3),
+    0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+@media (max-width: 768px) {
+  .backbutton {
+    top: 15px;
+    left: 15px;
+  }
+
+  .backbtn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .backbtn i {
+    font-size: 1.2rem;
+  }
+
+  .backbtn::after {
+    display: none;
+  }
+
+  .backbutton:hover .backbtn::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .backbutton {
+    top: 12px;
+    left: 12px;
+  }
+
+  .backbtn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .backbtn i {
+    font-size: 1.1rem;
+  }
+}
+
+.backbtn.dark-mode {
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.backbtn.dark-mode i {
+  color: #4caf50;
+}
+
+.backbtn.dark-mode:hover {
+  background: linear-gradient(135deg, #4caf50, #2a5934);
+}
+
+.backbtn.dark-mode:hover i {
+  color: white;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .backbtn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .backbtn:hover::before,
+  .backbtn:hover i {
+    transition: none;
+  }
+
+  .backbtn:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, #4caf50, #2a5934);
+  }
+
+  .backbtn:active i {
+    color: white;
+  }
+}

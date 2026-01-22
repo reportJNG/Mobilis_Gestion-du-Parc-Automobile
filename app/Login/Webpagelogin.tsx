@@ -63,13 +63,23 @@ export default function Webpagelogin() {
   };
   return (
     <div className={styles.container}>
+      <div className={styles.backbutton}>
+        <button
+          className={styles.backbtn}
+          onClick={() => routes.push("/")}
+          aria-label="Retour"
+          title="Retour"
+        >
+          <i className="fi fi-rr-left"></i>
+        </button>
+      </div>
       <div className={styles.image}>
         <Image
           src="/mobi.png"
           alt="Mobilis"
           className={styles.bigimage}
-          width={500}
-          height={500}
+          width={600}
+          height={600}
           priority
         />
       </div>

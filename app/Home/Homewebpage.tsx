@@ -1,4 +1,3 @@
-// Homewebpage.tsx with Silk as full background
 import styles from "./Homewebpage.module.css";
 import Topbar from "./Topbar";
 import About from "./About";
