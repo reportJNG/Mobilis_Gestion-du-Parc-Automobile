@@ -1,6 +1,6 @@
 .containersquared {
-  background-color: var(--bg);
-  border: 2px solid var(--secondary);
+  background-color: white;
+  border: 2px solid #e0e0e0;
   border-radius: 8px;
   padding: 1.5rem;
   min-width: 200px;
@@ -13,13 +13,13 @@
 .containersquared:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-  border-color: var(--primary);
+  border-color: #10b981;
 }
 
 .boxtheme {
   width: 48px;
   height: 48px;
-  background-color: var(--primary);
+  background-color: #10b981;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -32,13 +32,13 @@
 
 .boxtheme:hover {
   transform: rotate(5deg) scale(1.05);
-  background-color: var(--primary);
+  background-color: #0da271;
 }
 
 .count {
   font-size: 2.5rem;
   font-weight: bold;
-  color: var(--primary);
+  color: #10b981;
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
   display: inline-block;
@@ -49,7 +49,7 @@
   content: "+";
   font-size: 1.5rem;
   margin-left: 2px;
-  color: var(--primary);
+  color: #10b981;
   opacity: 0.7;
 }
 
@@ -66,16 +66,16 @@
 
 .textcom {
   font-size: 0.9rem;
-  color: var(--secondary);
+  color: #666666;
   line-height: 1.4;
 }
 
-/* Dark theme specific styles */
 :global([data-theme="dark"]) .texttitle {
   color: white;
 }
 
 :global([data-theme="dark"]) .containersquared {
+  background-color: #1a1a1a;
   border-color: #333;
 }
 
@@ -84,7 +84,10 @@
   color: white;
 }
 
-/* Loading animation for the number increment */
+:global([data-theme="dark"]) .textcom {
+  color: #b0b0b0;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -101,7 +104,6 @@
   animation: pulse 2s infinite;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .containersquared {
     padding: 1rem;
@@ -120,7 +122,6 @@
   }
 }
 
-/* Counter increment animation */
 @keyframes increment {
   0% {
     opacity: 0.5;

@@ -1,4 +1,3 @@
-"use client";
 import styles from "./squareexpericence.module.css";
 import React from "react";
 import { useEffect } from "react";
