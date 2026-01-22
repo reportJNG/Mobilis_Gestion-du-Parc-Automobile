@@ -9,8 +9,8 @@ export default function Topbar() {
         <Image
           src={"/home.jpg"}
           alt="Mobilis-logo"
-          width={0}
-          height={0}
+          width={80}
+          height={80}
           className={styles.logoimage}
         />
       </div>
