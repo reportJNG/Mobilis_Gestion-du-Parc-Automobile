@@ -1,3 +1,4 @@
+@import url("https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
 .container {
   display: flex;
   height: 100vh;
@@ -234,12 +235,40 @@
 }
 
 .linksContainer {
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.forget {
+  background: none;
+  border: none;
+  color: #059669;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.forget::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #e0f7e9;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #10b981, transparent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.forget:hover {
+  color: #000000;
+}
+
+.forget:hover::after {
+  transform: scaleX(1);
 }
 
 @keyframes fadeIn {

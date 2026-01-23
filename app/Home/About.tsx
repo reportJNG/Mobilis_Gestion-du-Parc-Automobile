@@ -19,7 +19,7 @@ export default function About() {
         >
           Contact
         </span>
-        <span onClick={() => routes.push("/Login/Help")}>Report</span>
+        <span onClick={() => routes.push("/Login/Help/Report")}>Report</span>
       </div>
       <div className={styles.socialacc}>
         {/**6 socials */}

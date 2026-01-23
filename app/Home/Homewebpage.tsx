@@ -15,7 +15,7 @@ export default function Homewebpage() {
     "شبكة تثق بها",
     "Together toward the future",
   ];
-  const [calendar, setCalendar] = useState<number>(20);
+  const [calendar, setCalendar] = useState<number>(21);
   const [map, setMap] = useState<number>(55);
   const [users, setUsers] = useState<number>(15);
   const [lock, setLock] = useState<number>(34);
@@ -56,7 +56,7 @@ export default function Homewebpage() {
                   </button>
                   <button
                     className={`${styles.button} ${styles.secondaryBtn}`}
-                    onClick={() => routes.push("/Login/Help")}
+                    onClick={() => routes.push("/Login/Help/Report")}
                   >
                     Nous contacter
                   </button>
@@ -95,7 +95,7 @@ export default function Homewebpage() {
                 text="Plus de 20 ans d'expérience"
                 comment="Mobilis accompagne les Algériens depuis plus de deux décennies dans les télécommunications."
                 num={calendar}
-                howmuch={20}
+                howmuch={0}
                 icon={<i className="fi fi-rr-calendar-clock"></i>}
                 setnum={setCalendar}
               />

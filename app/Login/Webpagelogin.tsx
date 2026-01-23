@@ -132,7 +132,15 @@ export default function Webpagelogin() {
           <button className={styles.button} type="submit">
             Se connecter
           </button>
-          <div className={styles.linksContainer}></div>
+          <div className={styles.linksContainer}>
+            <button
+              type="button"
+              className={styles.forget}
+              onClick={() => routes.push("/Login/Help")}
+            >
+              Connexion impossible besoin d’aide ?
+            </button>
+          </div>
         </form>
         )
       </div>
