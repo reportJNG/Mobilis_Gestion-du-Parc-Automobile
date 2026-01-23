@@ -47,7 +47,7 @@ export default function Termservices() {
       </div>
       <button
         className={styles.visitus}
-        onClick={() => window.open("https://mobilis.dz/apropos", "_href")}
+        onClick={() => window.open("https://mobilis.dz/apropos", "_blank")}
       >
         Rendez-nous visite
       </button>

@@ -1,15 +1,12 @@
 import styles from "./ImagerHolder.module.css";
 import Image from "next/image";
+
 interface ImagerHolderProps {
   Title: string;
   link: string;
-  comment: string;
 }
-export default function ImagerHolder({
-  Title,
-  link,
-  comment,
-}: ImagerHolderProps) {
+
+export default function ImagerHolder({ Title, link }: ImagerHolderProps) {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>
@@ -18,15 +15,13 @@ export default function ImagerHolder({
       <div className={styles.imageholder}>
         <Image
           src={link}
-          alt="Mobilis"
-          width={200}
-          height={200}
+          alt={Title}
+          width={600}
+          height={600}
           aria-label={Title}
           title={Title}
+          priority={true}
         />
-        <div className={styles.insideimage}>
-          <p className={styles.commenttxt}>{comment}</p>
-        </div>
       </div>
     </div>
   );
