@@ -24,7 +24,7 @@ export default function Helper() {
         <div className={styles.navContent}>
           <button
             className={styles.navButton}
-            onClick={() => routes.push("/")}
+            onClick={() => routes.push("/Login")}
             aria-label="Retour à l'accueil"
             title="Retour"
           >
@@ -75,7 +75,7 @@ export default function Helper() {
                     className={`${styles.button} ${styles.buttonPrimary}`}
                   >
                     <i className="fi fi-rr-document"></i>
-                    <span>Rapports</span>
+                    <span>Rapporter</span>
                   </button>
                   <button
                     className={`${styles.button} ${styles.buttonSecondary}`}
