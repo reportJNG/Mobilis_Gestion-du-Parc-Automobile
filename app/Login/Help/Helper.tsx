@@ -2,6 +2,9 @@ import Textchange from "@/Components/Textchange";
 import styles from "./Helper.module.css";
 import { useRouter } from "next/navigation";
 import About from "@/app/Home/About";
+import Termservices from "./Termservices";
+import ImagerHolder from "./ImagerHolder";
+import Contact from "./Contact";
 export default function Helper() {
   const routes = useRouter();
   const t: string[] = [
@@ -50,7 +53,21 @@ export default function Helper() {
             </div>
           </div>
         </div>
-        <div className={styles.bodymid}></div>
+        <div className={styles.bodymid}>
+          <Termservices />
+          <div>
+            <ImagerHolder />
+            <ImagerHolder />
+          </div>
+          <div>
+            <Contact />
+            <Contact />
+            <Contact />
+            <Contact />
+            <Contact />
+            <Contact />
+          </div>
+        </div>
         <div className={styles.bodylower}>
           <About />
         </div>

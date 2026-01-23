@@ -1,5 +1,3 @@
-/* Termservices.module.css */
-
 .container {
   display: flex;
   flex-direction: column;
@@ -60,7 +58,6 @@
   transform: translateY(0);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .container {
     padding: 1.5rem;
