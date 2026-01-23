@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  max-width: 280px;
+  margin: 0 auto;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, sans-serif;
+}
+
+.uiholder {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.5rem;
+}
+
+.uiholder > *:first-child {
+  font-size: 2.5rem;
+  color: #2563eb;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.insideuiholder {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.textholder {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.text {
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.4;
+  font-weight: normal;
+  margin-top: 0.5rem;
+}
+
+.text strong,
+.text b {
+  font-weight: 700;
+  color: #1e293b;
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.container:hover .uiholder > *:first-child {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.container:hover .insideuiholder {
+  background-color: #e2e8f0;
+  transition: background-color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.25rem;
+    max-width: 250px;
+  }
+
+  .uiholder {
+    width: 56px;
+    height: 56px;
+  }
+
+  .uiholder > *:first-child {
+    font-size: 2.25rem;
+  }
+
+  .insideuiholder {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .text {
+    font-size: 0.95rem;
+  }
+
+  .text strong,
+  .text b {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+    max-width: 220px;
+    gap: 0.75rem;
+  }
+
+  .uiholder {
+    width: 48px;
+    height: 48px;
+  }
+
+  .uiholder > *:first-child {
+    font-size: 2rem;
+  }
+
+  .insideuiholder {
+    font-size: 0.65rem;
+    bottom: -6px;
+    right: -6px;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+
+  .text strong,
+  .text b {
+    font-size: 1rem;
+  }
+}
