@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Message from "@/Components/Message";
 import { useRouter } from "next/navigation";
+import LoadingPage from "@/Components/LoadingPage";
 interface LoginResponse {
   success: boolean;
   user?: {
@@ -20,8 +21,7 @@ export default function Webpagelogin() {
   const routes = useRouter();
 
   //new code here after major updates |admin|worker|
-  const ADMIN_PASS = "A9$kR7!mQe2Z@Wf#T8pL";
-  const WORKER_PASS = "X4!vM@2Pq9#LrS7$eZkF";
+  const [timer, setTimer] = useState<boolean>(false);
 
   const login = async (e: React.FormEvent) => {
     // here we check the data if it exsit in database so we can connect to webpage
@@ -51,10 +51,10 @@ export default function Webpagelogin() {
       const time = setTimeout(() => {
         //here send worker to worker panel admin to admin panel
         if (data.user?.role === "admin") {
-          routes.push(`/Login/Security?key=${ADMIN_PASS}`);
+          setTimer(true);
         }
         if (data.user?.role === "worker") {
-          routes.push(`/Login/Security?key=${WORKER_PASS}`);
+          setTimer(true);
         }
         setSuccess(false);
       }, 3000);
@@ -63,87 +63,92 @@ export default function Webpagelogin() {
   };
   return (
     <div className={styles.container}>
-      <div className={styles.backbutton}>
-        <button
-          className={styles.backbtn}
-          onClick={() => routes.push("/")}
-          aria-label="Retour"
-          title="Retour"
-        >
-          <i className="fi fi-rr-left"></i>
-        </button>
-      </div>
-      <div className={styles.image}>
-        <Image
-          src="/mobi.png"
-          alt="Mobilis"
-          className={styles.bigimage}
-          width={600}
-          height={600}
-          priority
-        />
-      </div>
-
-      <div className={styles.box}>
-        <div className={styles.logo}>
+      {!timer && (
+        <div className={styles.backbutton}>
+          <button
+            className={styles.backbtn}
+            onClick={() => routes.push("/")}
+            aria-label="Retour"
+            title="Retour"
+          >
+            <i className="fi fi-rr-left"></i>
+          </button>
+        </div>
+      )}
+      {!timer && (
+        <div className={styles.image}>
           <Image
-            src="/logo.png"
+            src="/mobi.png"
             alt="Mobilis"
-            className={styles.small}
-            width={80}
-            height={80}
+            className={styles.bigimage}
+            width={600}
+            height={600}
             priority
           />
         </div>
-        <div className={styles.title}>
-          <h1 className={styles.texttile}>Gestion du Parc Automobile</h1>
-        </div>
-        (
-        <form onSubmit={login} className={styles.inputhanlder}>
-          {/**no injection now input good handled*/}
-          <input
-            type="text"
-            className={styles.inp}
-            maxLength={20}
-            minLength={3}
-            value={name}
-            onChange={(e) => {
-              const input = e.target.value;
-              const clean = input.replace(/[^a-zA-Z0-9]/g, "");
-              setName(clean);
-            }}
-            placeholder="Nom d'utilisateur"
-            required
-          />
-          <input
-            type="password"
-            className={styles.inp}
-            maxLength={8}
-            minLength={8}
-            value={password}
-            onChange={(e) => {
-              const input = e.target.value;
-              const clean = input.replace(/[^a-zA-Z0-9]/g, "");
-              setPassword(clean);
-            }}
-            placeholder="Mot de passe"
-            required
-          />
-          <button className={styles.button} type="submit">
-            Se connecter
-          </button>
-          <div className={styles.linksContainer}>
-            <button
-              type="button"
-              className={styles.forget}
-              onClick={() => routes.push("/Login/Help")}
-            >
-              Connexion impossible besoin d’aide ?
-            </button>
+      )}
+      {!timer && (
+        <div className={styles.box}>
+          <div className={styles.logo}>
+            <Image
+              src="/logo.png"
+              alt="Mobilis"
+              className={styles.small}
+              width={80}
+              height={80}
+              priority
+            />
           </div>
-        </form>
-        )
-      </div>
+          <div className={styles.title}>
+            <h1 className={styles.texttile}>Gestion du Parc Automobile</h1>
+          </div>
+          (
+          <form onSubmit={login} className={styles.inputhanlder}>
+            {/**no injection now input good handled*/}
+            <input
+              type="text"
+              className={styles.inp}
+              maxLength={20}
+              minLength={3}
+              value={name}
+              onChange={(e) => {
+                const input = e.target.value;
+                const clean = input.replace(/[^a-zA-Z0-9]/g, "");
+                setName(clean);
+              }}
+              placeholder="Nom d'utilisateur"
+              required
+            />
+            <input
+              type="password"
+              className={styles.inp}
+              maxLength={8}
+              minLength={8}
+              value={password}
+              onChange={(e) => {
+                const input = e.target.value;
+                const clean = input.replace(/[^a-zA-Z0-9]/g, "");
+                setPassword(clean);
+              }}
+              placeholder="Mot de passe"
+              required
+            />
+            <button className={styles.button} type="submit">
+              Se connecter
+            </button>
+            <div className={styles.linksContainer}>
+              <button
+                type="button"
+                className={styles.forget}
+                onClick={() => routes.push("/Login/Help")}
+              >
+                Connexion impossible besoin d’aide ?
+              </button>
+            </div>
+          </form>
+          )
+        </div>
+      )}
       {success && <Message text="Connexion réussie !" state={true} />}
       {faild && (
         <Message
@@ -151,6 +156,7 @@ export default function Webpagelogin() {
           state={false}
         />
       )}
+      {timer && <LoadingPage name={name} />}
     </div>
   );
 }
