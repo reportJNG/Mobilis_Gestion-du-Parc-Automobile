@@ -72,13 +72,8 @@ export default function Helper() {
 
                 <div className={styles.heroActions}>
                   <button
-                    className={`${styles.button} ${styles.buttonPrimary}`}
-                  >
-                    <i className="fi fi-rr-document"></i>
-                    <span>Rapporter</span>
-                  </button>
-                  <button
                     className={`${styles.button} ${styles.buttonSecondary}`}
+                    onClick={() => window.open("https://mobilis.dz/", "_blank")}
                   >
                     <i className="fi fi-rr-marker"></i>
                     <span>Visitez-nous</span>

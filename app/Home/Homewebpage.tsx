@@ -56,7 +56,9 @@ export default function Homewebpage() {
                   </button>
                   <button
                     className={`${styles.button} ${styles.secondaryBtn}`}
-                    onClick={() => routes.push("/Login/Help/Report")}
+                    onClick={() =>
+                      window.open("https://mobilis.dz/contact", "_blank")
+                    }
                   >
                     Nous contacter
                   </button>
