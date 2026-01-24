@@ -4,7 +4,7 @@
   height: 100vh;
   background: white;
   color: #111827;
-  display: flex;
+  display: fixed;
   flex-direction: column;
   box-shadow: 16px 0 40px rgba(0, 0, 0, 0.08);
   position: relative;
@@ -257,11 +257,14 @@
 }
 
 .down {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   padding: 24px;
   border-top: 1px solid #f0f2f5;
   background: white;
-  animation: fadeIn 0.4s ease 0.4s forwards;
-  opacity: 0;
+  z-index: 1000;
 }
 
 @keyframes fadeIn {

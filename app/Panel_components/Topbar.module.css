@@ -42,6 +42,7 @@
 .imagelogo {
   width: 60px;
   border-radius: 30px;
+  border: solid 2px #0cf0a4;
   height: 60px;
 }
 
@@ -201,5 +202,53 @@
     width: 36px;
     height: 36px;
     font-size: 1rem;
+  }
+}
+.leftmenu {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.leftbtn {
+  display: flex;
+  align-items: center;
+}
+
+.togglebutton {
+  background: #ffffff;
+  border: 2px solid #0cf0a4;
+  color: #10b981;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.15);
+}
+
+.togglebutton:hover {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.25);
+}
+
+.togglebutton:active {
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
+}
+
+@media (max-width: 768px) {
+  .leftmenu {
+    margin-right: 16px;
+  }
+
+  .togglebutton {
+    padding: 8px 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
   }
 }

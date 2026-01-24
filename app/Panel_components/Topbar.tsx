@@ -1,18 +1,22 @@
 import styles from "./Topbar.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ViewTopBar } from "./Homewebpage";
+import { ViewTopBar } from "./FullpagePanel";
+
 interface TopbarProps {
   setActiveView: React.Dispatch<React.SetStateAction<ViewTopBar>>;
   setSettingsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setLeftToggle: React.Dispatch<React.SetStateAction<boolean>>;
+  lefttoggle: boolean;
 }
 
 export default function Topbar({
   setActiveView,
   setSettingsOpen,
+  setLeftToggle,
+  lefttoggle,
 }: TopbarProps) {
   const routes = useRouter(); //for sign out
-
   const toggle = (val: "feedback" | "home" | "profile" | "settings") => {
     if (val === "settings") {
       setSettingsOpen(true);
@@ -24,6 +28,18 @@ export default function Topbar({
 
   return (
     <div className={styles.container}>
+      <div className={styles.leftmenu}>
+        {!lefttoggle && (
+          <div className={styles.leftbtn}>
+            <button
+              className={styles.togglebutton}
+              onClick={() => setLeftToggle(true)}
+            >
+              <i className="fi fi-rr-menu-burger"></i>
+            </button>
+          </div>
+        )}
+      </div>
       <div className={styles.left}>
         <Image
           src={"/logo.png"}
@@ -35,7 +51,7 @@ export default function Topbar({
       </div>
 
       <div className={styles.mid}>
-        <h1 className={styles.title}>Mobilis</h1> {/* Different font for UI */}
+        <h1 className={styles.title}>Mobilis</h1>
       </div>
 
       <div className={styles.right}>
