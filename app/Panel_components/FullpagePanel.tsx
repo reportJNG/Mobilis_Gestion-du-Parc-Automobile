@@ -4,6 +4,7 @@ import Topbar from "./Topbar";
 import LeftMenu from "./LeftMenu";
 import About from "../Home/About";
 import Welcome from "./Welcome";
+import ImagerHolder from "../Login/Help/ImagerHolder";
 
 export type ViewTopBar = "home" | "feedback" | "profile";
 
@@ -33,6 +34,16 @@ export default function FullpagePanel() {
       </div>
       <div className={styles.body}>
         <Welcome />
+        <div className={styles.underwelcome}>
+          <ImagerHolder
+            link="/Workerland.jpg"
+            Title="Soutenir nos équipes pour travailler mieux et ensemble"
+          />
+          <ImagerHolder
+            link="/Workerland2.jpg"
+            Title="Favoriser la collaboration et l’excellence en équipe"
+          />
+        </div>
       </div>
       <div className={styles.footer}>
         <About />

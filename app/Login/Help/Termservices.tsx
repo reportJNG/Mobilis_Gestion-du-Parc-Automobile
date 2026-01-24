@@ -5,44 +5,46 @@ export default function Termservices() {
     <div className={styles.container}>
       <div className={styles.box}>
         <p>
-          ATM Mobilis is the leading mobile operator in Algeria, providing
-          reliable and affordable telecommunications services to individuals and
-          businesses since 2002.
+          ATM Mobilis est le principal opérateur mobile en Algérie, offrant des
+          services de télécommunications fiables et abordables aux particuliers
+          et aux entreprises depuis 2002.
         </p>
 
         <p>
-          We offer high-quality mobile, data, and digital solutions designed to
-          support communication, connectivity, and digital transformation across
-          the country.
+          Nous proposons des solutions mobiles, de données et digitales de haute
+          qualité, conçues pour soutenir la communication, la connectivité et la
+          transformation numérique à travers tout le pays.
         </p>
 
         <p>
-          Mobilis is committed to innovation and continuous improvement,
-          investing in modern technologies to deliver a fast, secure, and
-          nationwide network.
+          Mobilis sengage dans linnovation et lamélioration continue, en
+          investissant dans des technologies modernes pour offrir un réseau
+          rapide, sécurisé et couvrant l’ensemble du territoire.
         </p>
 
         <p>
-          Customer satisfaction is at the core of our mission. We provide
-          responsive customer support and technical assistance to help users
-          whenever they need it.
+          La satisfaction des clients est au cœur de notre mission. Nous
+          fournissons un support client réactif et une assistance technique pour
+          aider les utilisateurs à tout moment.
         </p>
 
         <p>
-          We take data protection seriously. Mobilis applies strict security
-          measures to ensure the confidentiality, integrity, and safety of
-          users’ personal information.
+          Nous prenons la protection des données très au sérieux. Mobilis
+          applique des mesures de sécurité strictes pour garantir la
+          confidentialité, lintégrité et la sécurité des informations
+          personnelles des utilisateurs.
         </p>
 
         <p>
-          As a responsible national operator, Mobilis contributes to Algeria’s
-          socio-economic development by promoting digital inclusion and
-          sustainable growth.
+          En tant quopérateur national responsable, Mobilis contribue au
+          développement socio-économique de l’Algérie en favorisant l’inclusion
+          numérique et la croissance durable.
         </p>
 
         <p>
-          By using Mobilis services, users agree to benefit from a trusted,
-          transparent, and customer-focused telecommunications partner.
+          En utilisant les services de Mobilis, les utilisateurs bénéficient
+          d’un partenaire de télécommunications de confiance, transparent et
+          centré sur le client.
         </p>
       </div>
       <button
