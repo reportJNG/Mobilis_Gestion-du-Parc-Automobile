@@ -3,12 +3,10 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import About from "@/app/Home/About";
 import Silk from "@/app/Home/Silk";
-
+import Message from "./Message";
 interface Secureprops {
   name: string;
   testerpsw: string;
-  setRongPsw: React.Dispatch<React.SetStateAction<boolean>>;
-  setGoodPsw: React.Dispatch<React.SetStateAction<boolean>>;
   setDone: React.Dispatch<React.SetStateAction<boolean>>;
   where: string;
 }
@@ -16,21 +14,21 @@ interface Secureprops {
 export default function Secure({
   name,
   testerpsw,
-  setRongPsw,
-  setGoodPsw,
   setDone,
   where,
 }: Secureprops) {
   const [Loading, setLoading] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
   const [isFocused, setIsFocused] = useState<boolean>(false);
-
+  const [rongpsw, setRongPsw] = useState<boolean>(false);
+  const [truepsw, setGoodPsw] = useState<boolean>(false);
   const routes = useRouter();
 
   const action = () => {
     if (testerpsw === password) {
       setGoodPsw(true);
       setLoading(true);
+      setPassword("");
       setTimeout(() => {
         setGoodPsw(false);
         setTimeout(() => {
@@ -41,15 +39,12 @@ export default function Secure({
       }, 7000);
     } else {
       setRongPsw(true);
+      setPassword("");
+      console.log("rong");
+
       setTimeout(() => {
         setRongPsw(false);
       }, 7000);
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      action();
     }
   };
 
@@ -151,7 +146,6 @@ export default function Secure({
                       }}
                       onFocus={() => setIsFocused(true)}
                       onBlur={() => setIsFocused(false)}
-                      onKeyPress={handleKeyPress}
                       maxLength={8}
                       minLength={8}
                       className={styles.passwordInput}
@@ -215,9 +209,6 @@ export default function Secure({
             <div
               className={`${styles.loadingContainer} ${Loading ? styles.active : ""}`}
             >
-              <div className={styles.loadingBar}>
-                <div className={styles.loadingProgress}></div>
-              </div>
               <p className={styles.loadingText}>Authentification en cours...</p>
             </div>
           </div>
@@ -227,6 +218,10 @@ export default function Secure({
       <div className={styles.footer}>
         <About />
       </div>
+      {truepsw && <Message text="Travail démarré avec succès" state={true} />}
+      {rongpsw && (
+        <Message text="Échec du démarrage du travail" state={false} />
+      )}
     </div>
   );
 }

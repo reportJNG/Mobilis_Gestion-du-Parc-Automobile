@@ -71,9 +71,8 @@ export default function Webpagelogin() {
     }
   };
   //here new logic for secure component
-  const WorkerPassword = "";
-  const [rongpsw, setRongpsw] = useState<boolean>(false);
-  const [truepsw, setTruepsw] = useState<boolean>(false);
+  const WorkerPassword = "W2027Xmb"; //workers admin static
+
   const [DoneSecure, setDoneSecure] = useState<boolean>(false);
   const [securing, setSecuring] = useState<boolean>(false);
   return (
@@ -176,8 +175,6 @@ export default function Webpagelogin() {
         <Secure
           name={name}
           setDone={setDoneSecure}
-          setGoodPsw={setTruepsw}
-          setRongPsw={setRongpsw}
           testerpsw={WorkerPassword}
           where="/Workers"
         />

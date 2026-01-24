@@ -8,22 +8,25 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
+  z-index: 10;
   animation: slideIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-
-
 .container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
 }
 
 .container.good {
@@ -105,7 +108,7 @@
 }
 
 .container {
-  animation: 
+  animation:
     slideIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55),
     fadeOut 0.5s ease 5s forwards;
 }
@@ -157,7 +160,7 @@
     left: 20px;
     margin: 0 auto;
   }
-  
+
   @keyframes slideIn {
     0% {
       opacity: 0;
@@ -171,7 +174,7 @@
       transform: translateY(0) scale(1);
     }
   }
-  
+
   @keyframes fadeOut {
     0% {
       opacity: 1;
