@@ -4,6 +4,7 @@ import Image from "next/image";
 import Message from "@/Components/Message";
 import { useRouter } from "next/navigation";
 import LoadingPage from "@/Components/LoadingPage";
+import Secure from "@/Components/Secure";
 interface LoginResponse {
   success: boolean;
   user?: {
@@ -52,23 +53,32 @@ export default function Webpagelogin() {
         //here send worker to worker panel admin to admin panel
         if (data.user?.role === "admin") {
           setTimer(true);
+          setTimeout(() => {
+            setTimer(false);
+            setSecuring(true);
+          }, 5000);
         }
         if (data.user?.role === "worker") {
           setTimer(true);
+          setTimeout(() => {
+            setTimer(false);
+            setSecuring(true);
+          }, 5000);
         }
         setSuccess(false);
       }, 3000);
       return () => clearTimeout(time);
     }
   };
-  //here new logic for secure component 
-  const WorkerPassword = '';
-  const [rongpsw,setRongpsw]=useState<boolean>(false);
-  const [truepsw,setTruepsw]=useState<boolean>(false);
-  const [DoneSecure,setDoneSecure]=useState<boolean>(false);
+  //here new logic for secure component
+  const WorkerPassword = "";
+  const [rongpsw, setRongpsw] = useState<boolean>(false);
+  const [truepsw, setTruepsw] = useState<boolean>(false);
+  const [DoneSecure, setDoneSecure] = useState<boolean>(false);
+  const [securing, setSecuring] = useState<boolean>(false);
   return (
     <div className={styles.container}>
-      {!timer && (
+      {!timer && !securing && (
         <div className={styles.backbutton}>
           <button
             className={styles.backbtn}
@@ -80,7 +90,7 @@ export default function Webpagelogin() {
           </button>
         </div>
       )}
-      {!timer && (
+      {!timer && !securing && (
         <div className={styles.image}>
           <Image
             src="/mobi.png"
@@ -92,7 +102,7 @@ export default function Webpagelogin() {
           />
         </div>
       )}
-      {!timer && (
+      {!timer && !securing && (
         <div className={styles.box}>
           <div className={styles.logo}>
             <Image
@@ -162,7 +172,16 @@ export default function Webpagelogin() {
         />
       )}
       {timer && <LoadingPage name={name} />}
-      {!timer&&}
+      {!timer && securing && (
+        <Secure
+          name={name}
+          setDone={setDoneSecure}
+          setGoodPsw={setTruepsw}
+          setRongPsw={setRongpsw}
+          testerpsw={WorkerPassword}
+          where="/Workers"
+        />
+      )}
     </div>
   );
 }

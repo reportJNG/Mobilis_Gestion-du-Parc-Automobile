@@ -10,6 +10,7 @@ interface Secureprops {
   setRongPsw: React.Dispatch<React.SetStateAction<boolean>>;
   setGoodPsw: React.Dispatch<React.SetStateAction<boolean>>;
   setDone: React.Dispatch<React.SetStateAction<boolean>>;
+  where: string;
 }
 export default function Secure({
   name,
@@ -17,15 +18,23 @@ export default function Secure({
   setRongPsw,
   setGoodPsw,
   setDone,
+  where,
 }: Secureprops) {
+  const [Loading, setLoading] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
+
   const routes = useRouter();
   const action = () => {
     if (testerpsw === password) {
       setGoodPsw(true);
+      setLoading(true);
       setTimeout(() => {
         setGoodPsw(false);
-        setDone(true);
+        setTimeout(() => {
+          setDone(true);
+          setLoading(false);
+          routes.push(where);
+        }, 1000);
       }, 7000);
     } else {
       setRongPsw(true);
@@ -124,6 +133,11 @@ export default function Secure({
                     </button>
                   </div>
                 </div>
+              </div>
+              <div className={styles.undernewbox}>
+                <div
+                  className={`styles.loading ${Loading ? "none" : "loads"}`}
+                ></div>
               </div>
             </div>
           </div>
