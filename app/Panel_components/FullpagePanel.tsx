@@ -36,6 +36,8 @@ export default function FullpagePanel() {
       </div>
       <div className={styles.body}>
         <div className={styles.backgrounddarkveil}>
+          {" "}
+          {/**this is full background of the body and top of it the component inside body */}
           <DarkVeil
             hueShift={0}
             noiseIntensity={0}
@@ -44,7 +46,6 @@ export default function FullpagePanel() {
             scanlineFrequency={0}
             warpAmount={0}
           />
-
           <Welcome />
           <div className={styles.underwelcome}>
             <div className={styles.right}>

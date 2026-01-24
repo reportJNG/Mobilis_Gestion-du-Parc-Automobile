@@ -12,7 +12,6 @@ export default function LeftMenu({ close, adminbridge }: LeftMenuprops) {
     Véhicules: false,
     Missions: false,
     Gestion_du_parc: false,
-    Administration: false,
   });
   const routes = useRouter(); //signout
   const ToggelPanel = (panel: keyof typeof panels) => {
@@ -132,33 +131,18 @@ export default function LeftMenu({ close, adminbridge }: LeftMenuprops) {
             </div>
           )}
         </div>
-        (
+
         <div className={styles.boxeach}>
           <button
             aria-label="Administration"
             title="Administration"
             type="button"
-            onClick={() => ToggelPanel("Administration")}
             disabled={adminbridge}
           >
             <i className="fi fi-rr-user-gear"></i>{" "}
             <strong className={styles.text}>Administration</strong>
           </button>
-          {panels.Administration && (
-            <div className={styles.dropdown}>
-              <ul className={styles.ul}>
-                <li className={styles.li}>
-                  <i className="fi fi-rr-brazil"></i>Wilaya
-                </li>
-                <li className={styles.li}>
-                  <i className="fi fi-rr-add-document"></i>Ajouter un
-                  utilisateur
-                </li>
-              </ul>
-            </div>
-          )}
         </div>
-        )
       </div>
       <div className={styles.down}>
         <button className={styles.quit} onClick={() => routes.push("/Login")}>
