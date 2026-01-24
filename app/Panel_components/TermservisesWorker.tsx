@@ -1,6 +1,6 @@
-import styles from "./HomeWorker.module.css";
+import styles from "./TermservisesWorker.module.css";
 import { useRouter } from "next/navigation";
-export default function HomeWorker() {
+export default function TermservisesWorker() {
   const routes = useRouter();
   return (
     <div className={styles.container}>

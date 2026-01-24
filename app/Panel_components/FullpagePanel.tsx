@@ -5,6 +5,8 @@ import LeftMenu from "./LeftMenu";
 import About from "../Home/About";
 import Welcome from "./Welcome";
 import ImagerHolder from "../Login/Help/ImagerHolder";
+import TermservisesWorker from "./TermservisesWorker";
+import DarkVeil from "./DarkVeil";
 
 export type ViewTopBar = "home" | "feedback" | "profile";
 
@@ -33,16 +35,32 @@ export default function FullpagePanel() {
         </div>
       </div>
       <div className={styles.body}>
-        <Welcome />
-        <div className={styles.underwelcome}>
-          <ImagerHolder
-            link="/Workerland.jpg"
-            Title="Soutenir nos équipes pour travailler mieux et ensemble"
+        <div className={styles.backgrounddarkveil}>
+          <DarkVeil
+            hueShift={0}
+            noiseIntensity={0}
+            scanlineIntensity={0}
+            speed={5}
+            scanlineFrequency={0}
+            warpAmount={0}
           />
-          <ImagerHolder
-            link="/Workerland2.jpg"
-            Title="Favoriser la collaboration et l’excellence en équipe"
-          />
+
+          <Welcome />
+          <div className={styles.underwelcome}>
+            <div className={styles.right}>
+              <TermservisesWorker />
+            </div>
+            <div className={styles.left}>
+              <ImagerHolder
+                link="/Workerland.jpg"
+                Title="Soutenir nos équipes pour travailler mieux et ensemble"
+              />
+              <ImagerHolder
+                link="/Workerland2.jpg"
+                Title="Favoriser la collaboration et l’excellence en équipe"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div className={styles.footer}>
