@@ -26,10 +26,6 @@ export default function Welcome({ className = "" }: WelcomeProps) {
     >
       <div className={styles.contentWrapper}>
         <div className={styles.textSection}>
-          <h1 id="welcome-heading" className={styles.heading}>
-            Mobilis Innovation Hub
-          </h1>
-
           <div className={styles.textAnimationContainer}>
             <Textchange t={messages} />
           </div>
@@ -48,9 +44,7 @@ export default function Welcome({ className = "" }: WelcomeProps) {
               className={`${styles.btn} ${styles.primaryBtn}`}
               aria-label="Découvrez comment travailler avec nous"
               title="Comment travailler avec nous"
-              onClick={() => {
-                /* Add navigation logic */
-              }}
+              onClick={() => {}}
             >
               <span className={styles.btnText}>
                 Comment travailler avec nous

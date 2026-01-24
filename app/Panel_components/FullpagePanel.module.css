@@ -84,32 +84,14 @@
   transform: translateX(2px) scale(0.98);
 }
 
-.footer {
-  width: 100%;
-  background: #ffffff;
-  padding: 20px 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-}
-
 @media (max-width: 768px) {
   .body {
     padding-bottom: 55px;
-  }
-
-  .footer {
-    padding: 16px 0;
   }
 }
 
 @media (max-width: 480px) {
   .body {
     padding-bottom: 50px;
-  }
-
-  .footer {
-    padding: 14px 0;
   }
 }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Topbar from "./Topbar";
 import LeftMenu from "./LeftMenu";
 import About from "../Home/About";
+import Welcome from "./Welcome";
 
 export type ViewTopBar = "home" | "feedback" | "profile";
 
@@ -31,7 +32,7 @@ export default function FullpagePanel() {
         </div>
       </div>
       <div className={styles.body}>
-        <h1>dwqdwq</h1>
+        <Welcome />
       </div>
       <div className={styles.footer}>
         <About />
