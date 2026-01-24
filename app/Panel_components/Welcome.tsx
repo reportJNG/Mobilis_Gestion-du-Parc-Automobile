@@ -1,53 +1,75 @@
 import Textchange from "@/Components/Textchange";
 import styles from "./Welcome.module.css";
 
-export default function Welcome() {
-  const t: string[] = [
+interface WelcomeProps {
+  className?: string;
+}
+
+export default function Welcome({ className = "" }: WelcomeProps) {
+  const messages: string[] = [
     "Bienvenue dans votre espace de travail Mobilis",
     "Chaque idée compte chez Mobilis",
-    "Ici, vos idées font avancer l’Algérie",
+    "Ici, vos idées font avancer l'Algérie",
     "Ensemble, innovons pour connecter le futur",
     "Votre créativité a sa place chez Mobilis",
     "Construisons des solutions, pas seulement des réseaux",
     "Mobilis, un espace où les idées prennent vie",
     "Avançons ensemble vers de nouveaux horizons",
-    "L’innovation commence avec vous",
-    "Travaillons aujourd’hui pour le Mobilis de demain",
+    "L'innovation commence avec vous",
+    "Travaillons aujourd'hui pour le Mobilis de demain",
   ];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.box}>
-        <div className={styles.comp}>
-          {/**ready component here */}
-          <Textchange t={t} />
+    <section
+      className={`${styles.container} ${className}`}
+      aria-labelledby="welcome-heading"
+    >
+      <div className={styles.contentWrapper}>
+        <div className={styles.textSection}>
+          <h1 id="welcome-heading" className={styles.heading}>
+            Mobilis Innovation Hub
+          </h1>
+
+          <div className={styles.textAnimationContainer}>
+            <Textchange t={messages} />
+          </div>
+
+          <div className={styles.comment}>
+            <p className={styles.commentText}>
+              Un espace collaboratif où chaque idée contribue à lévolution de
+              Mobilis Algérie
+            </p>
+          </div>
         </div>
-        <div className={styles.comment}>
-          <p>
-            Un espace collaboratif où chaque idée contribue à l’évolution de
-            Mobilis Algérie
-          </p>
+
+        <div className={styles.actionsSection}>
+          <div className={styles.buttonContainer}>
+            <button
+              className={`${styles.btn} ${styles.primaryBtn}`}
+              aria-label="Découvrez comment travailler avec nous"
+              title="Comment travailler avec nous"
+              onClick={() => {
+                /* Add navigation logic */
+              }}
+            >
+              <span className={styles.btnText}>
+                Comment travailler avec nous
+              </span>
+              <span className={styles.btnIcon}>→</span>
+            </button>
+
+            <button
+              className={`${styles.btn} ${styles.secondaryBtn}`}
+              onClick={() => window.open("https://mobilis.dz/", "_blank")}
+              aria-label="Visitez notre site web Mobilis"
+              title="Visitez notre site web"
+            >
+              <span className={styles.btnText}>Visitez-nous</span>
+              <span className={styles.btnIcon}>↗</span>
+            </button>
+          </div>
         </div>
       </div>
-      <div className={styles.boxacctions}>
-        <div className={styles.buttonholder}>
-          <button
-            className={styles.btn}
-            aria-label="Comment travailler avec nous"
-            title="Comment travailler avec nous"
-          >
-            Comment travailler avec nous
-          </button>
-          <button
-            className={styles.btn}
-            onClick={() => window.open("https://mobilis.dz/", "_blank")}
-            aria-label="Visitez-nous"
-            title="Visitez-nous"
-          >
-            Visitez-nous
-          </button>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }
