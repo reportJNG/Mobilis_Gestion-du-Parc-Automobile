@@ -61,6 +61,11 @@ export default function Webpagelogin() {
       return () => clearTimeout(time);
     }
   };
+  //here new logic for secure component 
+  const WorkerPassword = '';
+  const [rongpsw,setRongpsw]=useState<boolean>(false);
+  const [truepsw,setTruepsw]=useState<boolean>(false);
+  const [DoneSecure,setDoneSecure]=useState<boolean>(false);
   return (
     <div className={styles.container}>
       {!timer && (
@@ -157,6 +162,7 @@ export default function Webpagelogin() {
         />
       )}
       {timer && <LoadingPage name={name} />}
+      {!timer&&}
     </div>
   );
 }
