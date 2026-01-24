@@ -1,15 +1,14 @@
 import styles from "./FullpagePanel.module.css";
 import LeftMenu from "./LeftMenu";
 import { useState } from "react";
-interface FullpagePanelprops {
-  adminbridge: boolean;
-}
+
 export type ViewTopBar = "home" | "feedback" | "profile";
 
-export default function FullpagePanel({ adminbridge }: FullpagePanelprops) {
+export default function FullpagePanel() {
   const [lefttoggle, setLeftToggle] = useState<boolean>(false);
   const [activeView, setActiveView] = useState<ViewTopBar>("home");
-  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
+  const [adminbridge, setAdminbridge] = useState<boolean>(false);
   return (
     <div className={styles.container}>
       <div className={styles.leftmenu}>
