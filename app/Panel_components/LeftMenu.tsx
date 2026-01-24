@@ -160,7 +160,7 @@ export default function LeftMenu({ close, adminbridge }: LeftMenuprops) {
         )}
       </div>
       <div className={styles.down}>
-        <button className={styles.quit} onClick={() => routes.push("/")}>
+        <button className={styles.quit} onClick={() => routes.push("/Login")}>
           <i className="fi fi-rr-person-to-door"></i>
           <strong className={styles.text}>Déconnecter</strong>
         </button>

@@ -22,29 +22,33 @@ export default function Secure({
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [rongpsw, setRongPsw] = useState<boolean>(false);
   const [truepsw, setGoodPsw] = useState<boolean>(false);
+  const [temps, setTemps] = useState<number>(2);
   const routes = useRouter();
 
   const action = () => {
-    if (testerpsw === password) {
-      setGoodPsw(true);
-      setLoading(true);
-      setPassword("");
-      setTimeout(() => {
-        setGoodPsw(false);
-        setTimeout(() => {
-          setDone(true);
-          setLoading(false);
-          routes.push(where);
-        }, 1000);
-      }, 7000);
+    if (temps <= 0) {
+      routes.push("/");
     } else {
-      setRongPsw(true);
-      setPassword("");
-      console.log("rong");
-
-      setTimeout(() => {
-        setRongPsw(false);
-      }, 7000);
+      if (testerpsw === password) {
+        setGoodPsw(true);
+        setLoading(true);
+        setPassword("");
+        setTimeout(() => {
+          setGoodPsw(false);
+          setTimeout(() => {
+            setDone(true);
+            setLoading(false);
+            routes.push(where);
+          }, 1000);
+        }, 7000);
+      } else {
+        setTemps((prev) => prev - 1);
+        setRongPsw(true);
+        setPassword("");
+        setTimeout(() => {
+          setRongPsw(false);
+        }, 7000);
+      }
     }
   };
 
