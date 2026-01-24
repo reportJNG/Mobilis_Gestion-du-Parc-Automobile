@@ -18,6 +18,17 @@ export default function FullpagePanel() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.fullBackground}>
+        <DarkVeil
+          hueShift={150}
+          noiseIntensity={0}
+          scanlineIntensity={0}
+          speed={5}
+          scanlineFrequency={0}
+          warpAmount={0}
+        />
+      </div>
+
       <div className={styles.header}>
         <Topbar
           setActiveView={setActiveView}
@@ -34,18 +45,9 @@ export default function FullpagePanel() {
           )}
         </div>
       </div>
-      <div className={styles.body}>
-        <div className={styles.backgrounddarkveil}>
-          {" "}
-          {/**this is full background of the body and top of it the component inside body */}
-          <DarkVeil
-            hueShift={0}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={5}
-            scanlineFrequency={0}
-            warpAmount={0}
-          />
+
+      <div className={styles.mainWrapper}>
+        <div className={styles.content}>
           <Welcome />
           <div className={styles.underwelcome}>
             <div className={styles.right}>
@@ -58,14 +60,15 @@ export default function FullpagePanel() {
               />
               <ImagerHolder
                 link="/Workerland2.jpg"
-                Title="Favoriser la collaboration et l’excellence en équipe"
+                Title="Favoriser la collaboration et l'excellence en équipe"
               />
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.footer}>
-        <About />
+
+        <div className={styles.footer}>
+          <About />
+        </div>
       </div>
     </div>
   );

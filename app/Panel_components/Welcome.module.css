@@ -70,20 +70,12 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 1.5rem;
-  background: var(--background-white);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  border-left: 4px solid var(--primary-color);
   transition: var(--transition);
-}
-
-.comment:hover {
-  box-shadow: var(--shadow-md);
 }
 
 .commentText {
   font-size: 1.125rem;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.781);
   line-height: 1.6;
   margin: 0;
   font-weight: 500;
