@@ -5,6 +5,8 @@
   padding: 1.5rem;
   min-width: 200px;
   position: relative;
+  cursor: pointer;
+
   overflow: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -31,7 +33,6 @@
 }
 
 .boxtheme:hover {
-  transform: rotate(5deg) scale(1.05);
   background-color: #0da271;
 }
 
@@ -68,24 +69,6 @@
   font-size: 0.9rem;
   color: #666666;
   line-height: 1.4;
-}
-
-:global([data-theme="dark"]) .texttitle {
-  color: white;
-}
-
-:global([data-theme="dark"]) .containersquared {
-  background-color: #1a1a1a;
-  border-color: #333;
-}
-
-:global([data-theme="dark"]) .count,
-:global([data-theme="dark"]) .count::after {
-  color: white;
-}
-
-:global([data-theme="dark"]) .textcom {
-  color: #b0b0b0;
 }
 
 @keyframes pulse {

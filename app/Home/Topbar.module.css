@@ -24,12 +24,17 @@
   height: 80px !important;
   border-radius: 12px;
   object-fit: cover;
+  border-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
   border: 2px solid #ffffff;
   box-shadow: 0 4px 12px rgba(228, 236, 234, 0.15);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
-
+.logoimage:hover {
+  border-color: #0ddb1e;
+  box-shadow: 0 6px 20px rgb(42, 230, 4);
+}
 .mid {
   flex: 2;
   display: flex;
@@ -40,7 +45,6 @@
   font-family: "Montserrat", sans-serif;
   font-size: 2.25rem;
   font-weight: 800;
-  color: #111827;
   letter-spacing: -0.5px;
   margin: 0;
   position: relative;
@@ -55,7 +59,7 @@
   transform: translateX(-50%);
   width: 50px;
   height: 4px;
-  background: linear-gradient(90deg, #10b981, #059669);
+  background: linear-gradient(90deg, #4eb492, #34d399);
   border-radius: 2px;
   transition: width 0.3s ease;
 }
@@ -74,7 +78,7 @@
     "Segoe UI",
     Roboto,
     sans-serif;
-  color: #111827;
+  color: #f9fafb;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -101,7 +105,7 @@
   left: 1.2rem;
   right: 1.2rem;
   height: 2px;
-  background-color: #10b981;
+  background-color: #ffffff;
   transform: scaleX(0);
   transition: transform 0.3s ease;
   transform-origin: center;
@@ -113,6 +117,8 @@
 }
 
 .right span:focus-visible {
+  outline-color: #10b981;
+
   outline: 2px solid #10b981;
   outline-offset: 2px;
   border-radius: 8px;
@@ -177,6 +183,7 @@
 
   .right span {
     font-size: 0.9rem;
+
     padding: 0.35rem 0.9rem;
   }
 
@@ -254,52 +261,4 @@
     opacity: 1;
     transform: scale(1);
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .title {
-    color: #15c573;
-  }
-
-  .title::after {
-    background: linear-gradient(90deg, #10b981, #34d399);
-  }
-
-  .logoimage {
-    border-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
-  }
-
-  .logoimage:hover {
-    border-color: #0ddb1e;
-    box-shadow: 0 6px 20px rgb(42, 230, 4);
-  }
-
-  .right span {
-    color: #f9fafb;
-  }
-
-  .right span::after {
-    background-color: #ffffff;
-  }
-
-  .right span:focus-visible {
-    outline-color: #10b981;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .container,
-  .logoimage,
-  .title::after,
-  .right span,
-  .right span::after {
-    animation: none;
-    transition: none;
-  }
-}
-
-.title,
-.right span {
-  font-display: swap;
 }

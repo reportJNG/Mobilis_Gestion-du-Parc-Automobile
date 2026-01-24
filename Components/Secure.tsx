@@ -65,7 +65,7 @@ export default function Secure({
         <div className={styles.headerContent}>
           <button
             className={styles.backButton}
-            onClick={() => routes.push("/Login")}
+            onClick={() => routes.push("/")}
             aria-label="Retour"
             title="Retour"
           >

@@ -9,7 +9,7 @@
 }
 
 .changedText {
-  color: #000000;
+  color: #ffffff;
   font-size: 2.5rem;
   font-weight: 700;
   font-family:
@@ -90,15 +90,5 @@
 
   .cursor {
     height: 2.5rem;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .changedText {
-    color: #ffffff;
-  }
-
-  .cursor {
-    background: #00ff00;
   }
 }
