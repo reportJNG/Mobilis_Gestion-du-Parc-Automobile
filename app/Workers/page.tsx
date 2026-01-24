@@ -1,5 +1,5 @@
 "use client";
-import FullpagePanel from "../Panel_components/FullpagePanel";
+import FullpagePanel from "../Home_Worker_components/FullpagePanel";
 export default function Home() {
   return <FullpagePanel />;
 }
