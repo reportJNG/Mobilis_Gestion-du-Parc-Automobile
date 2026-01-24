@@ -1,6 +1,5 @@
 import styles from "./Secure.module.css";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { useState } from "react";
 import About from "@/app/Home/About";
 import Silk from "@/app/Home/Silk";
@@ -80,12 +79,7 @@ export default function Secure({
           </button>
 
           <div className={styles.logo}>
-            <div className={styles.logoIcon}>
-              <i className="fi fi-rr-shield-check"></i>
-            </div>
-            <h1 className={styles.logoText}>
-              Mobilis<span className={styles.logoAccent}>Secure</span>
-            </h1>
+            <h1 className={styles.logoText}>Mobilis</h1>
           </div>
 
           <div className={styles.userProfile}>
