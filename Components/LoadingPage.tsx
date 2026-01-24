@@ -58,7 +58,7 @@ export default function LoadingPage({ name }: LoadingPageProps) {
       </div>
 
       <div className={styles.footer}>
-        <span>© 2024 Mobilis • Votre espace personnel</span>
+        <span>© 2027 Mobilis • Votre espace personnel</span>
       </div>
     </div>
   );
