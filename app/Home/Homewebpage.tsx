@@ -115,7 +115,7 @@ export default function Homewebpage() {
                 text="Millions d'abonnés"
                 comment="Une large base de clients qui fait confiance à Mobilis au quotidien."
                 num={users}
-                howmuch={45}
+                howmuch={2}
                 icon={<i className="fi fi-rr-users"></i>}
                 setnum={setUsers}
               />
